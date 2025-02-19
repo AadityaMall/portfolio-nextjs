@@ -4,8 +4,8 @@
 
 @layer components {
     .nav-link {
-        @apply relative text-white cursor-pointer text-[16px] md:block after:block after:content-[''] 
-        after:absolute after:left-0 after:h-[2px] after:bg-brandColor after:w-full after:scale-x-0 after:hover:scale-x-100 
-        after:transition after:duration-300 after:origin-center hidden;
+        @apply relative text-white cursor-pointer text-[16px] md:block after:block md:after:content-[''] 
+        md:after:absolute md:after:left-0 md:after:h-[2px] md:after:bg-brandColor md:after:w-full md:after:scale-x-0 md:after:hover:scale-x-100 
+        md:after:transition md:after:duration-300 md:after:origin-center hidden;
     }
 }
