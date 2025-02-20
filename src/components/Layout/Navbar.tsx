@@ -42,11 +42,9 @@ function NavBar() {
       expanded={expand} // Control the collapse/expand state
       fixed="top"
       expand="md"
-      className={
-        navColour
-          ? "backdrop-blur-md shadow-teal transition-all duration-300 ease-out p-1 py-1.5 px-8 text-lg"
-          : "fixed transition-all duration-300 ease-out p-1 py-1.5 px-8 text-lg"
-      }
+      className={`transition-all duration-300 ease-out p-1 py-1.5 px-8 text-lg 
+        ${navColour ? "backdrop-blur-md shadow-teal" : ""}
+      `}
     >
       <Container>
         <Navbar.Brand
