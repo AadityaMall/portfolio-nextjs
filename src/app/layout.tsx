@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Layout/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ParticlesComponent from "@/components/Particles";
-import Footer from "@/components/Footer";
+import ParticlesComponent from "@/components/Layout/Particles";
+import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "Aaditya Mall",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-black`}>
+      <body className={`bg-black text-white`}>
         <ParticlesComponent />
         <Navbar />
         <div className="mt-5">{children}</div>

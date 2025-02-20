@@ -1,14 +1,8 @@
-"use client"
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Instagram, GitHub, LinkedIn, WhatsApp } from "@mui/icons-material";
 import Link from "next/link";
-
-const iconSX = {
-  color: "white",
-  transition: ".1s ease-in-out",
-  ":hover": { color: "#2fcbe0", cursor: "pointer" },
-};
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faGithub, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   let year = "2024";
@@ -27,42 +21,31 @@ function Footer() {
             <li className="ml-[10px] mr-[10px]">
               <Link
                 href="https://github.com/aadityamall"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                <GitHub sx={iconSX} />
+                <FontAwesomeIcon icon={faGithub} className="text-white w-[20px] h-[20px] hover:text-brandColor"/>
               </Link>
             </li>
             <li className="ml-[10px] mr-[10px]">
               <Link
                 className="text-white"
                 href="https://wa.me/+919326430750"
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                <WhatsApp sx={iconSX} />
+                <FontAwesomeIcon icon={faWhatsapp} className="text-white w-[20px] h-[20px] hover:text-brandColor"/>
               </Link>
             </li>
 
             <li className=" ml-[10px] mr-[10px]">
               <Link
                 href="https://www.linkedin.com/in/aaditya-mall-b45a48216/"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                <LinkedIn sx={iconSX} />
+                <FontAwesomeIcon icon={faLinkedin} className="text-white w-[20px] h-[20px] hover:text-brandColor"/>
               </Link>
             </li>
             <li className=" ml-[10px] mr-[10px]">
               <Link
                 href="https://www.instagram.com/aaditya.mall"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                <Instagram sx={iconSX} />
+                <FontAwesomeIcon icon={faInstagram} className="text-white w-[20px] h-[20px] hover:text-brandColor"/>
               </Link>
             </li>
           </ul>

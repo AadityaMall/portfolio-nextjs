@@ -1,10 +1,12 @@
-import React from 'react'
+import Landing from "@/components/Home/Landing"
 
 const page = () => {
   return (
     <>
-    <div className='min-h-screen'>page</div>
-    <div className='min-h-screen text-white' id='contact'>CCCCC</div>
+    <div className='min-h-screen flex flex-col justify-center items-center'>
+      <Landing />
+    </div>
+    
     </>
   )
 }
