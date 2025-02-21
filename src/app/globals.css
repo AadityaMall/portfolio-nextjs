@@ -6,7 +6,7 @@
     .nav-link-tw{
         @apply relative text-white no-underline text-[18px] cursor-pointer md:block after:block md:after:content-[''] 
         md:after:absolute md:after:left-0 md:after:h-[2px] md:after:bg-brandColor md:after:w-full md:after:scale-x-0 md:after:hover:scale-x-100 
-        md:after:transition md:after:duration-300 md:after:origin-center hidden;
+        md:after:transition md:after:duration-300 md:after:origin-center;
     }
 }
 
