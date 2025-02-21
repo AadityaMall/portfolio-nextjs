@@ -109,27 +109,26 @@ const Skills = () => {
     {
       name: "Git",
       image: "/svgs/git.svg",
-      level: "Intermediate",
     },
     {
       name: "Postman",
       image: "/svgs/postman.svg",
-      level: "Intermediate",
     },
     {
       name: "VS Code",
       image: "/svgs/vscode.svg",
-      level: "Intermediate",
     },
     {
       name: "Intellij IDEA",
       image: "/svgs/intellij.svg",
-      level: "Intermediate",
     },
     {
       name: "Eclipse",
       image: "/svgs/eclipse.svg",
-      level: "Intermediate",
+    },
+    {
+      name: "Razorpay",
+      image: "/svgs/razorpay.svg",
     },
   ];
   return (
@@ -298,7 +297,7 @@ const Skills = () => {
         {tools.map((skill, index) => (
           <Col xs={6} md={3} key={index}>
             <div
-              className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
+              className="w-full text-4xl min-h-[90%] p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2"
             >
               <Tooltip title={skill.name}>
@@ -308,21 +307,6 @@ const Skills = () => {
                   width={100}
                   height={100}
                 />
-              </Tooltip>
-              <Tooltip title={skill.level}>
-                <div className="absolute w-full bottom-0 left-0">
-                  <div
-                    className="h-[8px] bg-brandColor"
-                    style={{
-                      width:
-                        skill.level === "Beginner"
-                          ? "50%"
-                          : skill.level === "Intermediate"
-                          ? "80%"
-                          : "100%",
-                    }}
-                  ></div>
-                </div>
               </Tooltip>
             </div>
           </Col>

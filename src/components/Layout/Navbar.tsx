@@ -99,13 +99,13 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <NavLink to="/resume" pathname={location}>
-                Resume
+              <NavLink to="/cv" pathname={location}>
+                CV
               </NavLink>
             </Nav.Item>
 
             <Nav.Item>
-              <NavLink to="/contact" pathname={location}>
+              <NavLink to="/#contact" pathname={location}>
                 Contact
               </NavLink>
             </Nav.Item>

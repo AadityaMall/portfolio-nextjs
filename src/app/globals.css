@@ -123,3 +123,19 @@
     @apply bg-background text-foreground;
     }
 }
+
+body::-webkit-scrollbar {
+  width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #02444d71;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #2fcbe0;
+}
