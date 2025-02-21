@@ -1,9 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Resume = () => {
+  const [iframeHeight, setIframeHeight] = useState("500px");
+
+  useEffect(() => {
+    setIframeHeight(`${window.innerHeight * 0.7}px`);
+  }, []);
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -13,12 +19,12 @@ const Resume = () => {
   };
 
   return (
-    <div className="flex flex justify-center md:mt-[30px] items-center h-screen">
-      <div className="flex flex-column justify-center items-center w-screen">
+    <div className="flex justify-center md:mt-[30px] items-center h-screen">
+      <div className="flex flex-col justify-center items-center w-screen">
         <iframe
           src={`/AadityaMallResume.pdf`}
           width="80%"
-          height={`${window.innerHeight * 0.7}px`}
+          height={iframeHeight}
           title="AadityaResume"
         />
         <Button
@@ -26,7 +32,7 @@ const Resume = () => {
           className="w-full max-w-[500px] m-2 normal-case bg-brandColor text-black font-bold my-4"
           onClick={handleDownload}
         >
-          <FontAwesomeIcon icon={faDownload} />
+          <FontAwesomeIcon icon={faDownload} className="mr-2" />
           Download CV
         </Button>
       </div>
