@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faGithub, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
-  let year = "2024";
+  const year = "2024";
 
   return (
     <Container fluid className="footer bg-[#181a27] h-auto text-white">

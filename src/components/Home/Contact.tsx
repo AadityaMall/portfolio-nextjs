@@ -3,6 +3,7 @@ import Link from "next/link";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 const Contact = () => {
   return (
     <>
@@ -12,10 +13,12 @@ const Contact = () => {
         </h1>
         <Row className="mt-[20px] w-full m-4">
           <Col xs={6} md={6} className="flex justify-center items-center">
-            <img
+            <Image
               src="/images/aadityaBitmoji.png"
               alt="Bitmoji"
               className="img-fluid max-h-48 z-100"
+              width={100}
+              height={100}
             />
           </Col>
           <Col

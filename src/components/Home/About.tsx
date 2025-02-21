@@ -22,7 +22,7 @@ const About = () => {
 
               <p className="text-white m-3 text-justify text-xl">
                 I am currently pursuing a Bachelor of Technology degree in
-                Computer Science from SVKM's NMIMS University, specializing in
+                Computer Science from SVKMs NMIMS University, specializing in
                 Artificial Intelligence. I am a creative and motivated
                 individual with strong skills in mathematics, logic, and coding.
                 My academic and personal experiences have instilled in me a

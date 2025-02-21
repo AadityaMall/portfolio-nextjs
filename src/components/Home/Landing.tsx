@@ -10,7 +10,7 @@ import {
   faGithub,
   faHackerrank,
 } from "@fortawesome/free-brands-svg-icons";
-import { faArrowDown, faPhone, faDownload, faFileLines } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faPhone, faFileLines } from "@fortawesome/free-solid-svg-icons";
 const Landing = () => {
   return (
     <>
