@@ -132,8 +132,8 @@ function NavLink({
       href={to}
       className={
         pathname === to
-          ? "nav-link text-brandColor font-bold"
-          : "nav-link text-white"
+          ? "nav-link-tw text-brandColor font-bold"
+          : "nav-link-tw text-white"
       }
     >
       {children}
