@@ -131,7 +131,7 @@ const Skills = () => {
     },
   ];
   return (
-    <div className="m-3 mb-0 flex flex-column justify-center items-center">
+    <div className="m-3 mb-0 flex flex-col justify-center items-center">
       <h1 className="text-white text-center my-4">
         My <strong className="text-brandColor">Skillset</strong>
       </h1>
@@ -252,7 +252,7 @@ const Skills = () => {
         Known <strong className="text-brandColor">Databases</strong>
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-        <div></div>
+        <div className="md:block hidden"></div>
         {databases.map((skill, index) => (
           <div
             className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center

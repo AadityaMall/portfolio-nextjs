@@ -2,11 +2,14 @@ import Landing from "@/components/Home/Landing";
 import About from "@/components/Home/About";
 import Skills from "@/components/Home/Skills";
 import Contact from "@/components/Home/Contact";
+import { Suspense } from "react";
+import Loader from "./loading";
 const page = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
+      <>
       <section
-        className="min-h-screen flex flex-col justify-center items-center custom-animated-appear"
+        className="min-h-screen flex justify-center items-center custom-animated-appear"
       >
         <Landing />
       </section>
@@ -24,9 +27,10 @@ const page = () => {
         id="contact"
         className="min-h-screen flex flex-col justify-center items-center custom-animated-appear"
       >
-        <Contact />
-      </section>
-    </>
+          <Contact />
+        </section>
+      </>
+    </Suspense>
   );
 };
 

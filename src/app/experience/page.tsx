@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-
+import { Suspense } from "react";
+import Loader from "../loading";
 const CustomChip = ({ label, icon }: { label: string; icon?: string }) => {
   return (
     <div
@@ -55,9 +56,9 @@ const page = () => {
   ];
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <div className="min-h-screen">
-        <div className="mt-[100px] text-center flex flex-column justify-center">
+        <div className="mt-[100px] text-center flex flex-col justify-center">
           <h1 className="text-brandColor mb-5">Experience</h1>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
             <div className="py-[10px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
@@ -70,7 +71,7 @@ const page = () => {
                   height={100}
                 />
               </div>
-              <div className="flex flex-column justify-center items-center md:items-start text-white md:px-[20px] col-span-2">
+              <div className="flex flex-col justify-center items-center md:items-start text-white md:px-[20px] col-span-2">
                 <div className="w-full flex md:flex-row flex-col items-center justify-between">
                   <span className="text-xl font-bold">Nobrokerage.com</span>
                   <span>June 2024 - July 2024</span>
@@ -83,7 +84,7 @@ const page = () => {
                     </strong>
                   </span>
                 </div>
-                <div className="mb-[10px]">
+                <div className="mb-[10px] mx-auto px-3 md:px-0">
                   <span className="text-center flex items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -92,7 +93,7 @@ const page = () => {
                     <span className="flex mx-2">In Office , Mumbai</span>
                   </span>
                 </div>
-                <div className="mb-[10px]">
+                <div className="mb-[10px] mx-auto text-wrap px-6 md:px-0">
                   <span className="text-center flex justify-center items-center text-sm">
                     <ul className="marker:text-brandColor list-disc text-left">
                       <li>
@@ -146,7 +147,7 @@ const page = () => {
                   height={100}
                 />
               </div>
-              <div className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
+              <div className="flex flex-col justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
                 <div className="w-full flex md:flex-row flex-col items-center justify-between">
                   <div className="md:text-left">
                     <span className="text-xl font-bold">RBL Bank</span>
@@ -161,7 +162,7 @@ const page = () => {
                     <strong className="text-brandColor">Product Intern</strong>
                   </span>
                 </div>
-                <div className="mb-[10px]">
+                <div className="mb-[10px] mx-auto px-3 md:px-0">
                   <span className="text-center flex items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -170,7 +171,7 @@ const page = () => {
                     <span className="flex mx-2">In Office , Mumbai</span>
                   </span>
                 </div>
-                <div className="mb-[10px]">
+                <div className="mb-[10px] mx-auto text-wrap px-6 md:px-0">
                   <span className="text-center flex justify-center items-center text-sm">
                     <ul className="marker:text-brandColor list-disc text-left">
                       <li>
@@ -213,7 +214,7 @@ const page = () => {
         </div>
       </div>
       <div className="min-h-screen">
-        <div className="mt-[100px] text-center flex flex-column justify-center">
+        <div className="mt-[100px] text-center flex flex-col justify-center">
           <h1 className="mb-5 text-white">
             Positions of{" "}
             <strong className="text-brandColor">Responsibility</strong>
@@ -229,7 +230,7 @@ const page = () => {
                   height={100}
                 />
               </div>
-              <div className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
+              <div className="flex flex-col justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   IET ( Institution of Engineering and Technology ) Mpstme.
                 </h5>
@@ -250,7 +251,7 @@ const page = () => {
                   height={100}
                 />
               </div>
-              <div className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
+              <div className="flex flex-col justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   Google Developers Students Club MPSTME
                 </h5>
@@ -271,7 +272,7 @@ const page = () => {
                   height={100}
                 />
               </div>
-              <div className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
+              <div className="flex flex-col justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   Taqeeq ( Annual Techfest , NMIMS MPSTME)
                 </h5>
@@ -283,7 +284,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

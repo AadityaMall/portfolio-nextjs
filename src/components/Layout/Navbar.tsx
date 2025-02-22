@@ -9,6 +9,7 @@ function NavBar() {
   const location = usePathname(); // Detect route changes
 
   const scrollHandler = useCallback(() => {
+    updateExpanded(false);
     if (window.scrollY >= 20) {
       updateNavbar(true);
     } else {
@@ -87,7 +88,7 @@ function NavBar() {
         </div>
       </div>
       <div
-        className={`absolute top-15 left-0 w-full backdrop-blur-md shadow-teal transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`absolute top-[56px] left-0 bg-[#181a27] shadow-teal w-full transition-all duration-300 ease-in-out overflow-hidden ${
           expand ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

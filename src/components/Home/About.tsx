@@ -1,8 +1,8 @@
 import Image from "next/image";
 const About = () => {
   return (
-    <div className="flex justify-center items-center m-3 mt-0 mb-0 md:w-[80%] w-full">
-      <div className="flex flex-row justify-center items-center grid grid-cols-4 gap-4mt-[80px]">
+    <div className="flex flex-col md:flex-row justify-center items-center m-3 mt-0 mb-0 md:w-[80%] w-full">
+      <div className="flex md:flex-row flex-col justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4mt-[80px]">
         <div className="flex justify-center items-center">
           <Image
             src="/images/Aaditya.JPG"
@@ -13,10 +13,10 @@ const About = () => {
             height={300}
           />
         </div>
-        <div className="flex flex-column justify-center items-center col-span-3">
-          <h1 className="text-brandColor">About Me</h1>
+        <div className="flex flex-col justify-center items-center md:col-span-2">
+          <h1 className="text-brandColor py-4">About Me</h1>
 
-          <p className="text-white m-3 text-justify text-xl">
+          <p className="text-white m-3 text-justify text-xl px-4">
             I am currently pursuing a Bachelor of Technology degree in Computer
             Science from SVKMs NMIMS University, specializing in Artificial
             Intelligence. I am a creative and motivated individual with strong

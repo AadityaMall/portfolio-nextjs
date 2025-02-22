@@ -1,7 +1,9 @@
 import ProjectCard from "@/components/Project/ProjectCard";
+import { Suspense } from "react";
+import Loader from "../loading";
 const page = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <div className="mt-[100px]">
         <div className="flex flex-row justify-center items-start grid md:grid-cols-3 grid-cols-1 gap-4">
           <div>
@@ -88,7 +90,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

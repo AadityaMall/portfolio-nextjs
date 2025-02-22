@@ -20,7 +20,7 @@ const ResumeClient = () => {
   };
 
   return (
-    <div className="flex justify-center md:mt-[30px] items-center h-screen">
+    <div className="flex justify-center md:mt-[30px] items-center min-h-screen">
       <div className="flex flex-col justify-center items-center w-screen">
         <iframe
           src={`/AadityaMallResume.pdf`}

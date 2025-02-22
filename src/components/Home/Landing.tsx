@@ -22,13 +22,13 @@ const Landing = () => {
           className="img-fluid w-auto h-auto"
           priority={true}
         />
-        <h1 className="heading text-white">
+        <h1 className="text-white font-bold">
           Hi There!{" "}
           <span className="wave" role="img" aria-labelledby="wave">
             👋🏻
           </span>
         </h1>
-        <h1>
+        <h1 className="text-white font-bold">
           I am <span className="text-brandColor">Aaditya Mall</span>
         </h1>
         <div className="my-2">
