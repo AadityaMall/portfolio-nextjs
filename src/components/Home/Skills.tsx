@@ -1,4 +1,3 @@
-import { Row, Col, Container } from "react-bootstrap";
 import Image from "next/image";
 import Tooltip from "@mui/material/Tooltip";
 const Skills = () => {
@@ -132,173 +131,169 @@ const Skills = () => {
     },
   ];
   return (
-    <Container className="m-3 mb-0 flex flex-column justify-center items-center">
+    <div className="m-3 mb-0 flex flex-column justify-center items-center">
       <h1 className="text-white text-center my-4">
         My <strong className="text-brandColor">Skillset</strong>
       </h1>
       <h3 className="text-white text-center my-4">
         Programming <strong className="text-brandColor">Languages</strong>
       </h3>
-      <Row className="w-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
         {codeSkills.map((skill, index) => (
-          <Col xs={6} md={3} key={index}>
-            <div
-              className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
+          <div
+            className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2"
-            >
-              <Tooltip title={skill.name}>
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={100}
-                  height={100}
-                />
-              </Tooltip>
-              <Tooltip title={skill.level}>
-                <div className="absolute w-full bottom-0 left-0">
-                  <div
-                    className="h-[8px] bg-brandColor"
-                    style={{
-                      width:
-                        skill.level === "Beginner"
-                          ? "50%"
-                          : skill.level === "Intermediate"
-                          ? "80%"
-                          : "100%",
-                    }}
-                  ></div>
-                </div>
-              </Tooltip>
-            </div>
-          </Col>
+            key={index}
+          >
+            <Tooltip title={skill.name}>
+              <Image
+                src={skill.image}
+                alt={skill.name}
+                width={100}
+                height={100}
+              />
+            </Tooltip>
+            <Tooltip title={skill.level}>
+              <div className="absolute w-full bottom-0 left-0">
+                <div
+                  className="h-[8px] bg-brandColor"
+                  style={{
+                    width:
+                      skill.level === "Beginner"
+                        ? "50%"
+                        : skill.level === "Intermediate"
+                        ? "80%"
+                        : "100%",
+                  }}
+                ></div>
+              </div>
+            </Tooltip>
+          </div>
         ))}
-      </Row>
+      </div>
       <h3 className="text-white text-center my-4">
         Frameworks <strong className="text-brandColor">and Libraries</strong>
       </h3>
-      <Row className="w-full">
-        <Col md={6}>
-          <Row>
-            <h3 className="text-center my-4">Frontend Frameworks</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        <div>
+          <h3 className="text-center my-4">Frontend Frameworks</h3>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
             {frontendFrameworks.map((skill, index) => (
-              <Col xs={6} md={6} key={index}>
-                <div
-                  className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
+              <div
+                className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2 md:my-0"
-                >
-                  <Tooltip title={skill.name}>
-                    <Image
-                      src={skill.image}
-                      alt={skill.name}
-                      width={100}
-                      height={100}
-                    />
-                  </Tooltip>
-                  <Tooltip title={skill.level}>
-                    <div className="absolute w-full bottom-0 left-0">
-                      <div
-                        className="h-[8px] bg-brandColor"
-                        style={{
-                          width:
-                            skill.level === "Beginner"
-                              ? "50%"
-                              : skill.level === "Intermediate"
-                              ? "80%"
-                              : "100%",
-                        }}
-                      ></div>
-                    </div>
-                  </Tooltip>
-                </div>
-              </Col>
+                key={index}
+              >
+                <Tooltip title={skill.name}>
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={100}
+                    height={100}
+                  />
+                </Tooltip>
+                <Tooltip title={skill.level}>
+                  <div className="absolute w-full bottom-0 left-0">
+                    <div
+                      className="h-[8px] bg-brandColor"
+                      style={{
+                        width:
+                          skill.level === "Beginner"
+                            ? "50%"
+                            : skill.level === "Intermediate"
+                            ? "80%"
+                            : "100%",
+                      }}
+                    ></div>
+                  </div>
+                </Tooltip>
+              </div>
             ))}
-          </Row>
-        </Col>
-        <Col md={6}>
-          <Row>
-            <h3 className="text-center my-4">Backend Frameworks</h3>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-center my-4">Backend Frameworks</h3>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
             {backendFrameworks.map((skill, index) => (
-              <Col xs={6} md={6} key={index}>
-                <div
-                  className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
+              <div
+                className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2 md:my-0"
-                >
-                  <Tooltip title={skill.name}>
-                    <Image
-                      src={skill.image}
-                      alt={skill.name}
-                      width={100}
-                      height={100}
-                    />
-                  </Tooltip>
-                  <Tooltip title={skill.level}>
-                    <div className="absolute w-full bottom-0 left-0">
-                      <div
-                        className="h-[8px] bg-brandColor"
-                        style={{
-                          width:
-                            skill.level === "Beginner"
-                              ? "50%"
-                              : skill.level === "Intermediate"
-                              ? "80%"
-                              : "100%",
-                        }}
-                      ></div>
-                    </div>
-                  </Tooltip>
-                </div>
-              </Col>
+                key={index}
+              >
+                <Tooltip title={skill.name}>
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={100}
+                    height={100}
+                  />
+                </Tooltip>
+                <Tooltip title={skill.level}>
+                  <div className="absolute w-full bottom-0 left-0">
+                    <div
+                      className="h-[8px] bg-brandColor"
+                      style={{
+                        width:
+                          skill.level === "Beginner"
+                            ? "50%"
+                            : skill.level === "Intermediate"
+                            ? "80%"
+                            : "100%",
+                      }}
+                    ></div>
+                  </div>
+                </Tooltip>
+              </div>
             ))}
-          </Row>
-        </Col>
-      </Row>
+          </div>
+        </div>
+      </div>
       <h3 className="text-white text-center my-4">
         Known <strong className="text-brandColor">Databases</strong>
       </h3>
-      <Row className="w-full">
-        <Col md={3}></Col>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+        <div></div>
         {databases.map((skill, index) => (
-          <Col xs={6} md={3} key={index}>
-            <div
-              className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
+          <div
+            className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2"
-            >
-              <Tooltip title={skill.name}>
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={100}
-                  height={100}
-                />
-              </Tooltip>
-              <Tooltip title={skill.level}>
-                <div className="absolute w-full bottom-0 left-0">
-                  <div
-                    className="h-[8px] bg-brandColor"
-                    style={{
-                      width:
-                        skill.level === "Beginner"
-                          ? "50%"
-                          : skill.level === "Intermediate"
-                          ? "80%"
-                          : "100%",
-                    }}
-                  ></div>
-                </div>
-              </Tooltip>
-            </div>
-          </Col>
+              key={index}
+          >
+            <Tooltip title={skill.name}>
+              <Image
+                src={skill.image}
+                alt={skill.name}
+                width={100}
+                height={100}
+              />
+            </Tooltip>
+            <Tooltip title={skill.level}>
+              <div className="absolute w-full bottom-0 left-0">
+                <div
+                  className="h-[8px] bg-brandColor"
+                  style={{
+                    width:
+                      skill.level === "Beginner"
+                        ? "50%"
+                        : skill.level === "Intermediate"
+                        ? "80%"
+                        : "100%",
+                  }}
+                ></div>
+              </div>
+            </Tooltip>
+          </div>
         ))}
-      </Row>
+      </div>
       <h3 className="text-white text-center my-8">
         Platforms <strong className="text-brandColor">and Tools</strong>
       </h3>
-      <Row className="w-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
         {tools.map((skill, index) => (
-          <Col xs={6} md={3} key={index}>
             <div
               className="w-full text-4xl min-h-[90%] p-[20px] md:m-[15px] flex flex-col justify-center items-center
               sm:m-[6px] border border-brandColor rounded-lg my-2"
+              key={index}
             >
               <Tooltip title={skill.name}>
                 <Image
@@ -309,10 +304,9 @@ const Skills = () => {
                 />
               </Tooltip>
             </div>
-          </Col>
         ))}
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 };
 
