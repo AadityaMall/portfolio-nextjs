@@ -55,7 +55,7 @@ const page = () => {
                 "/svgs/tailwindcss.svg",
               ]}
               previewLink={"https://aadityamall.tech/"}
-              githubLink={"https://github.com/AadityaMall/Personal-Portfolio"}
+              githubLink={"https://github.com/AadityaMall/portfolio-nextjs"}
               description='A personal portfolio website built on <span class = "text-brandColor"> NextJS Framework</span>  and Tailwind CSS'
             />
           </div>
