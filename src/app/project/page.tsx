@@ -1,11 +1,10 @@
-import { Col, Row, Container } from "react-bootstrap";
 import ProjectCard from "@/components/Project/ProjectCard";
 const page = () => {
   return (
     <>
-      <Container className="mt-[100px]">
-        <Row>
-          <Col md={4}>
+      <div className="mt-[100px]">
+        <div className="flex flex-row justify-center items-start grid md:grid-cols-3 grid-cols-1 gap-4">
+          <div>
             <ProjectCard
               title={"SoleStore Ecommerce"}
               subtitle={"MERN Stack Website"}
@@ -24,8 +23,8 @@ const page = () => {
               githubLink={"https://github.com/AadityaMall/SoleStore-Ecommerce"}
               description={`A Complete <span class="text-brandColor">MERN Stack ecommerce website</span> which has various pages and functionalities, example Cart, Wishlist, Checkout, Dashboard for Admin etc `}
             />
-          </Col>
-          <Col md={4}>
+          </div>
+          <div>
             <ProjectCard
               title={"CertiMail - Automated Certificate Sender"}
               subtitle={"Full Stack Application"}
@@ -41,8 +40,8 @@ const page = () => {
               githubLink={"https://github.com/AadityaMall/Certi-Mail"}
               description={`CertiMail is a streamlined and efficient <span class="text-brandColor">full stack web application</span> designed to automate certificate generation, distribution, and mass emailing. CertiMail simplifies workflows by enabling users to send personalized certificates and mass emails in just a few clicks. `}
             />
-          </Col>
-          <Col md={4}>
+          </div>
+          <div>
             <ProjectCard
               title={"Personal Portfolio"}
               subtitle={"React Website"}
@@ -57,8 +56,8 @@ const page = () => {
               githubLink={"https://github.com/AadityaMall/Personal-Portfolio"}
               description='A personal portfolio website built on <span class = "text-brandColor"> NextJS Framework</span>  and Tailwind CSS'
             />
-          </Col>
-          <Col md={4}>
+          </div>
+          <div>
             <ProjectCard
               title={"Advanced Calculator"}
               subtitle={"Python - Tkinter"}
@@ -72,8 +71,8 @@ const page = () => {
                 "Voice operated Calculator enables user to use his/her own voice to give commands to calculator which then provides the answer.",
               ]}
             />
-          </Col>
-          <Col md={4}>
+          </div>
+          <div>
             <ProjectCard
               title={"Contact Book System"}
               subtitle={"CPP File Management System"}
@@ -86,9 +85,9 @@ const page = () => {
                 'Leveraged <span class="text-brandColor"> File Management System </span> and .txt files to store and use data according to needs',
               ]}
             />
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

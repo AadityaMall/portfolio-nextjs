@@ -1,4 +1,3 @@
-import { Row, Col } from "react-bootstrap";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
@@ -61,8 +60,8 @@ const page = () => {
         <div className="mt-[100px] text-center flex flex-column justify-center">
           <h1 className="text-brandColor mb-5">Experience</h1>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
-            <Row className="py-[10px]">
-              <Col md={4} className="flex justify-center items-center">
+            <div className="py-[10px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src="/images/nobrokerage.png"
                   className="text-center bg-white img-fluid w-[80%] m-4 p-2 rounded"
@@ -70,28 +69,21 @@ const page = () => {
                   width={100}
                   height={100}
                 />
-              </Col>
-              <Col
-                md={8}
-                className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px]"
-              >
-                <Row className="w-full flex items-center">
-                  <Col md={6} className="md:text-left">
-                    <span className="text-xl font-bold">Nobrokerage.com</span>
-                  </Col>
-                  <Col md={6} className="md:text-right font-bold">
-                    <span>June 2024 - July 2024</span>
-                  </Col>
-                </Row>
-                <Row className="my-[10px]">
-                  <span className="text-center text-lg">
+              </div>
+              <div className="flex flex-column justify-center items-center md:items-start text-white md:px-[20px] col-span-2">
+                <div className="w-full flex md:flex-row flex-col items-center justify-between">
+                  <span className="text-xl font-bold">Nobrokerage.com</span>
+                  <span>June 2024 - July 2024</span>
+                </div>
+                <div className="my-[10px]">
+                  <span className="text-center md:text-left text-lg w-full">
                     Role :{" "}
                     <strong className="text-brandColor">
                       Full Stack Developer Intern
                     </strong>
                   </span>
-                </Row>
-                <Row className="mb-[10px]">
+                </div>
+                <div className="mb-[10px]">
                   <span className="text-center flex items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -99,8 +91,8 @@ const page = () => {
                     />{" "}
                     <span className="flex mx-2">In Office , Mumbai</span>
                   </span>
-                </Row>
-                <Row className="mb-[10px]">
+                </div>
+                <div className="mb-[10px]">
                   <span className="text-center flex justify-center items-center text-sm">
                     <ul className="marker:text-brandColor list-disc text-left">
                       <li>
@@ -126,8 +118,8 @@ const page = () => {
                       </li>
                     </ul>
                   </span>
-                </Row>
-                <Row className="mb-[10px] flex justify-center w-[90%] overflow-auto hide-scrollbar">
+                </div>
+                <div className="mb-[10px] flex justify-center w-[90%] overflow-auto hide-scrollbar">
                   <div className="flex flex-row gap-2 overflow-auto">
                     <CustomChip label="MongoDB" icon="/svgs/mongo.svg" />
                     <CustomChip
@@ -139,13 +131,13 @@ const page = () => {
                     <CustomChip label="PHP" icon="/svgs/php.svg" />
                     <CustomChip label="CodeIgniter 4" icon="/svgs/codeigniter.svg" />
                   </div>
-                </Row>
-              </Col>
-            </Row>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
-            <Row className="py-[20px]">
-              <Col md={4} className="flex justify-center items-center">
+            <div className="py-[20px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src="/images/rbl.png"
                   className="text-center bg-white img-fluid w-[80%] m-4 p-2 rounded"
@@ -153,26 +145,23 @@ const page = () => {
                   width={100}
                   height={100}
                 />
-              </Col>
-              <Col
-                md={8}
-                className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px]"
-              >
-                <Row className="w-full flex items-center">
-                  <Col md={6} className="md:text-left">
+              </div>
+              <div className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
+                <div className="w-full flex md:flex-row flex-col items-center justify-between">
+                  <div className="md:text-left">
                     <span className="text-xl font-bold">RBL Bank</span>
-                  </Col>
-                  <Col md={6} className="md:text-right font-bold">
+                  </div>
+                  <div className="md:text-right font-bold">
                     <span>June 2023 - July 2023</span>
-                  </Col>
-                </Row>
-                <Row className="my-[10px]">
+                  </div>
+                </div>
+                <div className="my-[10px]">
                   <span className="text-center text-lg">
                     Role :{" "}
                     <strong className="text-brandColor">Product Intern</strong>
                   </span>
-                </Row>
-                <Row className="mb-[10px]">
+                </div>
+                <div className="mb-[10px]">
                   <span className="text-center flex items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -180,8 +169,8 @@ const page = () => {
                     />{" "}
                     <span className="flex mx-2">In Office , Mumbai</span>
                   </span>
-                </Row>
-                <Row className="mb-[10px]">
+                </div>
+                <div className="mb-[10px]">
                   <span className="text-center flex justify-center items-center text-sm">
                     <ul className="marker:text-brandColor list-disc text-left">
                       <li>
@@ -208,8 +197,8 @@ const page = () => {
                       </li>
                     </ul>
                   </span>
-                </Row>
-                <Row className="mb-[10px] flex justify-center w-[90%] overflow-auto hide-scrollbar">
+                </div>
+                <div className="mb-[10px] flex justify-center w-[90%] overflow-auto hide-scrollbar">
                   <div className="flex flex-row gap-2 overflow-auto">
                     <CustomChip label="Information Architecture" />
                     <CustomChip label="Benchmarking" />
@@ -217,9 +206,9 @@ const page = () => {
                     <CustomChip label="Competition Analysis" />
                     <CustomChip label="UX" />
                   </div>
-                </Row>
-              </Col>
-            </Row>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -230,8 +219,8 @@ const page = () => {
             <strong className="text-brandColor">Responsibility</strong>
           </h1>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
-            <Row className="py-[10px]">
-              <Col md={4} className="flex justify-center items-center">
+            <div className="py-[10px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src="/images/IET.png"
                   className="text-center bg-white img-fluid w-[40%] m-4 p-2 rounded"
@@ -239,23 +228,20 @@ const page = () => {
                   width={100}
                   height={100}
                 />
-              </Col>
-              <Col
-                md={8}
-                className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px]"
-              >
+              </div>
+              <div className="flex flex-column justify-center md:items-start items-center text-white md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   IET ( Institution of Engineering and Technology ) Mpstme.
                 </h5>
                 <div className="px-[15px]">
                   <CustomStepper steps={ietSteps} currentStep={0} />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
-            <Row className="py-[20px]">
-              <Col md={4} className="flex justify-center items-center">
+            <div className="py-[20px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src="/images/GDSC.png"
                   className="text-center bg-white img-fluid w-[50%] m-4 p-2 rounded"
@@ -263,23 +249,20 @@ const page = () => {
                   width={100}
                   height={100}
                 />
-              </Col>
-              <Col
-                md={8}
-                className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px]"
-              >
+              </div>
+              <div className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   Google Developers Students Club MPSTME
                 </h5>
                 <div className="px-[15px]">
                   <CustomStepper steps={gdscSteps} currentStep={0} />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
           <div className="mx-[40px] my-[10px] border-2 border-brandColor rounded">
-            <Row className="py-[20px]">
-              <Col md={4} className="flex justify-center items-center">
+            <div className="py-[20px] flex flex-row justify-center items-center grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src="/images/tq.jpg"
                   className="text-center bg-white img-fluid w-[20%] m-4 p-2 rounded"
@@ -287,19 +270,16 @@ const page = () => {
                   width={100}
                   height={100}
                 />
-              </Col>
-              <Col
-                md={8}
-                className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px]"
-              >
+              </div>
+              <div className="flex flex-column justify-center md:items-start text-white px-[10px] md:px-[20px] col-span-2">
                 <h5 className="text-brandColor font-bold">
                   Taqeeq ( Annual Techfest , NMIMS MPSTME)
                 </h5>
                 <div className="px-[15px]">
                   <CustomStepper steps={taqeeqSteps} currentStep={0} />
                 </div>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
         </div>
       </div>

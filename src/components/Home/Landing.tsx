@@ -1,5 +1,4 @@
 "use client"
-import { Container } from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
 import TypeWriter from "./TypeWriter";
@@ -14,7 +13,7 @@ import { faArrowDown, faPhone, faFileLines } from "@fortawesome/free-solid-svg-i
 const Landing = () => {
   return (
     <>
-      <Container className="flex flex-col justify-evenly items-center h-[90vh]">
+      <div className="flex flex-col justify-evenly items-center h-[90vh]">
         <Image
           src="/images/HomePage.png"
           alt="home pic"
@@ -35,7 +34,7 @@ const Landing = () => {
         <div className="my-2">
           <TypeWriter />
         </div>
-        <div className="flex items-center justify-evenly my-4 md:w-[50%] w-full">
+        <div className="flex items-center justify-center gap-4 my-4 md:w-[50%] w-full">
           <Link href={"https://www.instagram.com/aaditya.mall"}>
             <FontAwesomeIcon
               icon={faInstagram}
@@ -87,7 +86,7 @@ const Landing = () => {
             className="text-white w-[50px] h-[50px] hover:text-brandColor animate-bounce"
           />
         </Link>
-      </Container>
+      </div>
     </>
   );
 };

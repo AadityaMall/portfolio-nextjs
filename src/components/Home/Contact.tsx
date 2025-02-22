@@ -16,8 +16,8 @@ const Contact = () => {
               src="/images/aadityaBitmoji.png"
               alt="Bitmoji"
               className="img-fluid max-h-48 z-100"
-              width={100}
-              height={100}
+              width={150}
+              height={10}
             />
           </div>
           <div className="flex flex-column justify-center items-center">

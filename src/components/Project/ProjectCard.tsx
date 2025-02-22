@@ -54,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {previewLink && (
               <Link
                 href={previewLink}
-                className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded"
+                className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
               >
                 <FontAwesomeIcon icon={faGlobe} />
                 <span className="ml-2">Live Preview</span>

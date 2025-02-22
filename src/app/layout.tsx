@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
-import "bootstrap/dist/css/bootstrap.min.css";
 import ParticlesComponent from "@/components/Layout/Particles";
 import Footer from "@/components/Layout/Footer";
 
