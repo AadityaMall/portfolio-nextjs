@@ -84,8 +84,8 @@ const page = () => {
                     </strong>
                   </span>
                 </div>
-                <div className="mb-[10px] mx-auto px-3 md:px-0">
-                  <span className="text-center flex items-center text-sm w-[300px]">
+                <div className="mb-[10px] md:mx-0 mx-auto px-3 md:px-0">
+                  <span className="flex justify-start items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
                       className="max-w-[15px]"
@@ -162,8 +162,8 @@ const page = () => {
                     <strong className="text-brandColor">Product Intern</strong>
                   </span>
                 </div>
-                <div className="mb-[10px] mx-auto px-3 md:px-0">
-                  <span className="text-center flex items-center text-sm w-[300px]">
+                <div className="mb-[10px] md:mx-0 mx-auto px-3 md:px-0">
+                  <span className="flex justify-start items-center text-sm w-[300px]">
                     <FontAwesomeIcon
                       icon={faLocationDot}
                       className="max-w-[15px]"
