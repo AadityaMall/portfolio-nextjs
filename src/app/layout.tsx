@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Aaditya Mall",
     description:
       "Pursuing a Bachelor of Technology in Computer Science with a specialization in Artificial Intelligence. A creative MERN stack developer with strong skills in math, logic, and coding. Explore a portfolio showcasing innovative web solutions and a passion for continuous learning.",
-    images: ["/images/Aaditya.jpg"],
+    images: ["/images/Aaditya.JPG"],
     url: "https://aadityamall.tech",
   },
   twitter: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Aaditya Mall",
     description:
       "Pursuing a Bachelor of Technology in Computer Science with a specialization in Artificial Intelligence. A creative MERN stack developer with strong skills in math, logic, and coding. Explore a portfolio showcasing innovative web solutions and a passion for continuous learning.",
-    images: ["/images/Aaditya.jpg"],
+    images: ["/images/Aaditya.JPG"],
     creator: "AadityaMall",
   },
 };
