@@ -4,8 +4,48 @@ import Loader from "../loading";
 const page = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <div className="mt-[100px]">
-        <div className="flex flex-row justify-center items-start grid md:grid-cols-3 grid-cols-1 gap-4">
+      <div className="mt-[100px] mx-10">
+        <div className="flex-row justify-center items-start grid md:grid-cols-3 grid-cols-1 gap-4">
+          <div>
+            <ProjectCard
+              title={"Aviation Ticketing System"}
+              subtitle={"Full Stack Microservices Application"}
+              image={"/images/aviation-ticketing-system.png"}
+              iconChips={[
+                "/svgs/mongo.svg",
+                "/svgs/tailwindcss.svg",
+                "/svgs/razorpay.svg",
+                "/svgs/nextjs.svg",
+                "/svgs/springboot.svg",
+                "/svgs/docker.svg",
+                "/svgs/rabbitmq.svg",
+                "/svgs/git.svg",
+                "/svgs/mysql.svg",
+              ]}
+              hosted={false}
+              githubOnlyProject={[
+                {
+                  title: "Backend",
+                  link: "https://github.com/program-guru/aviation-ticketing-system",
+                },
+                {
+                  title: "Frontend",
+                  link: "https://github.com/AadityaMall/on-board",
+                },
+              ]}
+              description={`A Complete <span class="text-brandColor">Microservice Architecture Full Stack Application</span> `}
+              bulletPoints={[
+                "The application is built using <span class='text-brandColor'>Microservice Architecture</span>",
+                "The application uses <span class='text-brandColor'>Spring Boot</span> for the backend and <span class='text-brandColor'>NextJS</span> for the frontend.",
+                "The application uses <span class='text-brandColor'>MongoDB and MySQL</span> for the database.",
+                "The application uses <span class='text-brandColor'>Websockets</span> for realtime seat blocking and booking.",
+                "The application uses <span class='text-brandColor'>Spring Security and JWT</span> for authentication and authorization.",
+                "The application has complete <span class='text-brandColor'>CI/CD Pipeline</span> using <span class='text-brandColor'>Docker</span> and <span class='text-brandColor'>Github Actions</span>.",
+                "The application has both <span class='text-brandColor'>Synchronus ( OpenFeign )</span> and <span class='text-brandColor'>Asynchronus ( RabbitMQ )</span> communication between microservices.",
+
+              ]}
+            />
+          </div>
           <div>
             <ProjectCard
               title={"SoleStore Ecommerce"}
@@ -65,7 +105,13 @@ const page = () => {
               subtitle={"Python - Tkinter"}
               image={"/images/calculator.png"}
               iconChips={["/svgs/python.svg"]}
-              githubLink={"https://github.com/AadityaMall/ScientificCalculator"}
+              hosted={false}
+              githubOnlyProject={[
+                {
+                  title: "Github",
+                  link: "https://github.com/AadityaMall/ScientificCalculator",
+                },
+              ]}
               description={`Calculator that performs some basic and advanced functions. This calculator is created with the help of language python.This calculator when started pops up on a screen where we can calculate basic commands like add, subtract, multiply, divide and percentage. There are three other modes added to this calculator, namely - Scientific Salculator , Audio Calculator and Voice Operated Calculator.`}
               bulletPoints={[
                 "Scientific Calculator mode enables functions like permutations, Combinations, power, cuberoot, factorial etc.",
@@ -80,7 +126,13 @@ const page = () => {
               subtitle={"CPP File Management System"}
               image={"/images/CppProject.png"}
               iconChips={["/svgs/cpp.svg"]}
-              githubLink={"https://github.com/AadityaMall/PhoneBook-System"}
+              hosted={false}
+              githubOnlyProject={[
+                {
+                  title: "Github",
+                  link: "https://github.com/AadityaMall/PhoneBook-System",
+                },
+              ]}
               description={`This is a demonstration as well as a layout of famous just dial app and its interface where a user can access contacts database of different genre.User can search as well as browse all the contacts from the database.Only admins can add or delete contacts from database.To access the admin abilities, valid user email and password is required.`}
               bulletPoints={[
                 'This project is built on concepts of <span class="text-brandColor">OOPS (Object Oriented Programming)</span>',

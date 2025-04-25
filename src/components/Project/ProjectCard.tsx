@@ -15,9 +15,11 @@ type ProjectCardProps = {
   image: string;
   description: string;
   previewLink?: string;
-  githubLink: string;
+  githubLink?: string;
   iconChips: string[];
   bulletPoints?: string[];
+  hosted?: boolean;
+  githubOnlyProject?: any[];
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,6 +31,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   githubLink,
   iconChips,
   bulletPoints,
+  hosted = true,
+  githubOnlyProject = [],
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -49,30 +53,57 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         </div>
         <div className="p-4 pt-0">
-          <p className="truncate" dangerouslySetInnerHTML={{ __html: description }}></p>
+          <p
+            className="truncate"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></p>
           <div className="flex space-x-2 mt-4">
-            {previewLink && (
-              <Link
-                href={previewLink}
-                className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
-              >
-                <FontAwesomeIcon icon={faGlobe} />
-                <span className="ml-2">Live Preview</span>
-              </Link>
+            {!hosted && githubOnlyProject.length > 0 ? (
+              githubOnlyProject.map((project, index) => (
+                <Link
+                  key={index}
+                  href={project.link}
+                  className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
+                >
+                  <FontAwesomeIcon icon={faCodeBranch} />
+                  <span className="ml-2">{project.title}</span>
+                </Link>
+              ))
+            ) : (
+              <></>
             )}
-            <Link
-              href={githubLink}
-              className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded"
-            >
-              <FontAwesomeIcon icon={faCodeBranch} />
-              <span className="ml-2">Github</span>
-            </Link>
           </div>
+          {hosted && (
+            <div className="flex space-x-2 mt-4">
+              {previewLink && (
+                <Link
+                  href={previewLink}
+                  className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
+                >
+                  <FontAwesomeIcon icon={faGlobe} />
+                  <span className="ml-2">Live Preview</span>
+                </Link>
+              )}
+              <Link
+                href={githubLink ||""}
+                className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded"
+              >
+                <FontAwesomeIcon icon={faCodeBranch} />
+                <span className="ml-2">Github</span>
+              </Link>
+            </div>
+          )}
         </div>
         <div className="p-4 flex justify-between items-center">
           <div className="flex gap-3 overflow-x-auto hide-scrollbar">
             {iconChips.map((icon, index) => (
-              <Image key={index} src={icon} alt="tech icon" width={35} height={35} />
+              <Image
+                key={index}
+                src={icon}
+                alt="tech icon"
+                width={35}
+                height={35}
+              />
             ))}
           </div>
           <button onClick={() => setExpanded(!expanded)} className="text-white">
@@ -87,7 +118,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <p dangerouslySetInnerHTML={{ __html: description }}></p>
             <ul className="list-disc pl-5 mt-2">
               {bulletPoints?.map((point, index) => (
-                <li key={index} dangerouslySetInnerHTML={{ __html: point }}></li>
+                <li
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: point }}
+                ></li>
               ))}
             </ul>
           </div>

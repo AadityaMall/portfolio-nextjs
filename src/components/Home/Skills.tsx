@@ -5,7 +5,7 @@ const Skills = () => {
     {
       name: "C++",
       image: "/svgs/cpp.svg",
-      level: "Beginner",
+      level: "Intermediate",
     },
     {
       name: "CSS",
@@ -40,7 +40,7 @@ const Skills = () => {
     {
       name: "TypeScript",
       image: "/svgs/typescript.svg",
-      level: "Beginner",
+      level: "Intermediate",
     },
   ];
   const frontendFrameworks = [
@@ -89,7 +89,7 @@ const Skills = () => {
     {
       name: "Spring Boot",
       image: "/svgs/springboot.svg",
-      level: "Beginner",
+      level: "Intermediate",
     },
   ];
   const databases = [
@@ -129,6 +129,15 @@ const Skills = () => {
       name: "Razorpay",
       image: "/svgs/razorpay.svg",
     },
+    {
+      name:"RabbitMQ",
+      image:"/svgs/rabbitmq.svg",
+    },
+    {
+      name:"Docker",
+      image:"/svgs/docker.svg"
+    }
+
   ];
   return (
     <div className="m-3 mb-0 flex flex-col justify-center items-center">
@@ -160,9 +169,9 @@ const Skills = () => {
                   style={{
                     width:
                       skill.level === "Beginner"
-                        ? "50%"
+                        ? "30%"
                         : skill.level === "Intermediate"
-                        ? "80%"
+                        ? "70%"
                         : "100%",
                   }}
                 ></div>
