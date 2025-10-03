@@ -1,7 +1,8 @@
 import ProjectCard from "@/components/Project/ProjectCard";
 import { Suspense } from "react";
-import Loader from "../loading";
-const page = () => {
+import Loader from "@/app/loading";
+
+const ProjectsPage = () => {
   return (
     <Suspense fallback={<Loader />}>
       <div className="mt-[100px] mx-10">
@@ -146,4 +147,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ProjectsPage;

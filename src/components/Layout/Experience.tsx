@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Suspense } from "react";
-import Loader from "../loading";
+import Loader from "../../app/loading";
 const CustomChip = ({ label, icon }: { label: string; icon?: string }) => {
   return (
     <div

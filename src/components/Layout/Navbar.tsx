@@ -69,15 +69,15 @@ function NavBar() {
               Home
             </NavLink>
 
-            <NavLink to="/experience" pathname={location}>
+            <NavLink to="/#experience" pathname={location}>
               Experience
             </NavLink>
 
-            <NavLink to="/project" pathname={location}>
+            <NavLink to="/#projects" pathname={location}>
               Projects
             </NavLink>
 
-            <NavLink to="/cv" pathname={location}>
+            <NavLink to="/#cv" pathname={location}>
               CV
             </NavLink>
 
