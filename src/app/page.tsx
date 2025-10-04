@@ -6,47 +6,52 @@ import Contact from "@/components/Home/Contact";
 import { Suspense } from "react";
 import Loader from "./loading";
 import Projects from "@/components/Project/Projects";
-import Resume from "@/components/Layout/CV";
-import Experience from "@/components/Layout/Experience";
+import Positions from "@/components/Layout/Positions";
+import WorkExperience from "@/components/Layout/WorkExperience";
+
 const page = () => {
   return (
     <Suspense fallback={<Loader />}>
       <>
         <section
-          className="min-h-screen flex justify-center items-center custom-animated-appear"
+          className="min-h-screen flex justify-center items-center"
         >
           <Landing />
         </section>
         <section
           id="about"
-          className="h-auto flex flex-col justify-start items-center custom-animated-appear"
+          className="h-auto flex flex-col justify-start items-center"
         >
           <About />
         </section>
         <section
           id="experience"
-          className="min-h-screen flex flex-col justify-start items-center custom-animated-appear"
+          className="min-h-screen flex flex-col justify-start items-center"
         >
-          <Experience />
+          <WorkExperience />
+
         </section>
-        <section className="min-h-screen flex flex-col justify-start items-center bg-[#181a27] mt-[100px] pb-5 custom-animated-appear">
+        <section  id="skills" className="min-h-screen flex flex-col justify-start items-center bg-gradient-to-br from-black via-gray-900 to-black mt-[100px] pb-5">
           <Skills />
         </section>
         <section
           id="projects"
-          className="min-h-screen flex flex-col justify-center items-center custom-animated-appear"
+          className="min-h-screen flex flex-col justify-center items-center"
         >
           <Projects />
         </section>
         <section
+          id="experience"
+          className="min-h-screen flex flex-col justify-start items-center"
+        >
+          <Positions />
+
+        </section>
+        <section
           id="contact"
-          className="min-h-screen flex flex-col justify-center items-center custom-animated-appear"
+          className="mt-10 flex flex-col justify-center items-center"
         >
           <Contact />
-        </section>
-        <section id="cv" className="w-full h-auto custom-animated-appear">
-          <Resume />
-
         </section>
       </>
     </Suspense>

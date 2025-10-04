@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,54 +9,54 @@ import {
   faLinkedin,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 
-function Footer() {
+const Footer = () => {
   return (
-    <div className="w-full bg-[#181a27] h-auto text-white">
-      <div className="container w-full mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-center py-2">
-          <div className="flex justify-center items-center">
-            <span>Designed and Developed by Aaditya Mall</span>
-          </div>
+    <footer className="w-full py-4 bg-black/50 backdrop-blur-sm border-t border-brandColor/20">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
 
-          <div className="flex justify-center items-center">
-            <span>Copyright © 2024</span>
-          </div>
+        {/* Left: Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-center md:text-left text-gray-400 text-sm"
+        >
+          Designed & Developed by <span className="text-brandColor font-semibold">Aaditya Mall</span> | © 2024
+        </motion.div>
 
-          <div className="flex justify-center items-center gap-x-4">
+        {/* Right: Social Icons */}
+        <motion.div
+          className="flex gap-4"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          {[
+            { icon: faGithub, link: "https://github.com/aadityamall" },
+            { icon: faLinkedin, link: "https://www.linkedin.com/in/aaditya-mall-b45a48216/" },
+            { icon: faWhatsapp, link: "https://wa.me/+919326430750" },
+            { icon: faInstagram, link: "https://www.instagram.com/aaditya.mall" },
+          ].map((social, idx) => (
+            <motion.a
+              key={idx}
+              href={social.link}
+              target="_blank"
+              whileHover={{ scale: 1.2, color: "#00ffe0" }}
+              whileTap={{ scale: 0.9 }}
+              className="text-white text-lg hover:text-brandColor transition-colors duration-300"
+            >
+              <FontAwesomeIcon icon={social.icon} />
+            </motion.a>
+          ))}
+        </motion.div>
 
-                <Link href="https://github.com/aadityamall">
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-white w-5 h-5 hover:text-brandColor"
-                  />
-              </Link>
-
-              <Link href="https://wa.me/+919326430750">
-                <FontAwesomeIcon
-                    icon={faWhatsapp}
-                    className="text-white w-5 h-5 hover:text-brandColor"
-                  />
-              </Link>
-
-              <Link href="https://www.linkedin.com/in/aaditya-mall-b45a48216/">
-                <FontAwesomeIcon
-                    icon={faLinkedin}
-                    className="text-white w-5 h-5 hover:text-brandColor"
-                  />
-              </Link>
-
-              <Link href="https://www.instagram.com/aaditya.mall">
-                <FontAwesomeIcon
-                    icon={faInstagram}
-                    className="text-white w-5 h-5 hover:text-brandColor"
-                  />
-            </Link>
-          </div>
-        </div>
       </div>
-    </div>
+    </footer>
   );
-}
+};
 
 export default Footer;

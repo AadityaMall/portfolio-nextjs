@@ -6,7 +6,17 @@ const ProjectsPage = () => {
   return (
     <Suspense fallback={<Loader />}>
       <div className="mt-[100px] mx-10">
-        <div className="flex-row justify-center items-start grid md:grid-cols-3 grid-cols-1 gap-4">
+        <h2 className="text-4xl font-bold text-white text-center mb-10">
+          My <span className="text-brandColor">Projects</span>
+        </h2>
+        <p className="text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+          Here are some of the projects that I have worked on. These projects
+          showcase my skills in web development, problem-solving, and creativity.
+          Each project is a testament to my dedication to building impactful and
+          user-centric solutions.
+        </p>
+        {/* Project Cards */}
+        <div className="flex-row justify-center items-start">
           <div>
             <ProjectCard
               title={"Aviation Ticketing System"}

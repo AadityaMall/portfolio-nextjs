@@ -1,107 +1,88 @@
 import Image from "next/image";
-import Tooltip from "@mui/material/Tooltip";
 const Skills = () => {
   const codeSkills = [
     {
       name: "C++",
       image: "/svgs/cpp.svg",
-      level: "Intermediate",
     },
     {
       name: "CSS",
       image: "/svgs/css.svg",
-      level: "Intermediate",
     },
     {
       name: "HTML",
       image: "/svgs/html.svg",
-      level: "Advanced",
     },
     {
       name: "JavaScript",
       image: "/svgs/javascript.svg",
-      level: "Advanced",
     },
     {
       name: "PHP",
       image: "/svgs/php.svg",
-      level: "Beginner",
+
     },
     {
       name: "Python",
       image: "/svgs/python.svg",
-      level: "Intermediate",
     },
     {
       name: "Java",
       image: "/svgs/java.svg",
-      level: "Intermediate",
     },
     {
       name: "TypeScript",
       image: "/svgs/typescript.svg",
-      level: "Intermediate",
     },
   ];
   const frontendFrameworks = [
     {
       name: "React",
       image: "/svgs/react.svg",
-      level: "Advanced",
     },
     {
       name: "Next.js",
       image: "/svgs/nextjs.svg",
-      level: "Intermediate",
     },
     {
       name: "Tailwind CSS",
       image: "/svgs/tailwindcss.svg",
-      level: "Advanced",
     },
     {
       name: "Bootstrap",
       image: "/svgs/bootstrap.svg",
-      level: "Advanced",
     },
     {
       name: "Codeigniter",
       image: "/svgs/codeigniter.svg",
-      level: "Beginner",
     },
   ];
   const backendFrameworks = [
     {
       name: "Node.js",
       image: "/svgs/nodejs.svg",
-      level: "Intermediate",
     },
     {
       name: "Express",
       image: "/svgs/express.svg",
-      level: "Intermediate",
     },
     {
       name: "Fastify",
       image: "/svgs/fastify.svg",
-      level: "Beginner",
     },
     {
       name: "Spring Boot",
       image: "/svgs/springboot.svg",
-      level: "Intermediate",
     },
   ];
   const databases = [
     {
       name: "MySQL",
       image: "/svgs/mysql.svg",
-      level: "Intermediate",
     },
     {
       name: "MongoDB",
       image: "/svgs/mongo.svg",
-      level: "Intermediate",
     },
   ];
   const tools = [
@@ -130,12 +111,12 @@ const Skills = () => {
       image: "/svgs/razorpay.svg",
     },
     {
-      name:"RabbitMQ",
-      image:"/svgs/rabbitmq.svg",
+      name: "RabbitMQ",
+      image: "/svgs/rabbitmq.svg",
     },
     {
-      name:"Docker",
-      image:"/svgs/docker.svg"
+      name: "Docker",
+      image: "/svgs/docker.svg"
     }
 
   ];
@@ -150,37 +131,25 @@ const Skills = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
         {codeSkills.map((skill, index) => (
           <div
-            className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
-              sm:m-[6px] border border-brandColor rounded-lg my-2"
+            className="flex flex-col items-center justify-center
+            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
+            p-6"
             key={index}
           >
-            <Tooltip title={skill.name}>
-              <Image
-                src={skill.image}
-                alt={skill.name}
-                width={100}
-                height={100}
-              />
-            </Tooltip>
-            <Tooltip title={skill.level}>
-              <div className="absolute w-full bottom-0 left-0">
-                <div
-                  className="h-[8px] bg-brandColor"
-                  style={{
-                    width:
-                      skill.level === "Beginner"
-                        ? "30%"
-                        : skill.level === "Intermediate"
-                        ? "70%"
-                        : "100%",
-                  }}
-                ></div>
-              </div>
-            </Tooltip>
+            <Image
+              src={skill.image}
+              alt={skill.name}
+              width={64}
+              height={64}
+              className="mb-2 h-full md:w-32"
+            />
+            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
-      <h3 className="text-white text-center my-4">
+      <h3 className="mt-10 text-white text-center my-4">
         Frameworks <strong className="text-brandColor">and Libraries</strong>
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
@@ -189,33 +158,21 @@ const Skills = () => {
           <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
             {frontendFrameworks.map((skill, index) => (
               <div
-                className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
-              sm:m-[6px] border border-brandColor rounded-lg my-2 md:my-0"
+                className="flex flex-col items-center justify-center
+            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
+            p-6"
                 key={index}
               >
-                <Tooltip title={skill.name}>
-                  <Image
-                    src={skill.image}
-                    alt={skill.name}
-                    width={100}
-                    height={100}
-                  />
-                </Tooltip>
-                <Tooltip title={skill.level}>
-                  <div className="absolute w-full bottom-0 left-0">
-                    <div
-                      className="h-[8px] bg-brandColor"
-                      style={{
-                        width:
-                          skill.level === "Beginner"
-                            ? "50%"
-                            : skill.level === "Intermediate"
-                            ? "80%"
-                            : "100%",
-                      }}
-                    ></div>
-                  </div>
-                </Tooltip>
+                <Image
+                  src={skill.image}
+                  alt={skill.name}
+                  width={64}
+                  height={64}
+                  className="mb-2 h-full md:w-32"
+                />
+                <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
+                  {skill.name}
+                </span>
               </div>
             ))}
           </div>
@@ -225,33 +182,21 @@ const Skills = () => {
           <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
             {backendFrameworks.map((skill, index) => (
               <div
-                className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
-              sm:m-[6px] border border-brandColor rounded-lg my-2 md:my-0"
+                className="flex flex-col items-center justify-center
+            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
+            p-6"
                 key={index}
               >
-                <Tooltip title={skill.name}>
-                  <Image
-                    src={skill.image}
-                    alt={skill.name}
-                    width={100}
-                    height={100}
-                  />
-                </Tooltip>
-                <Tooltip title={skill.level}>
-                  <div className="absolute w-full bottom-0 left-0">
-                    <div
-                      className="h-[8px] bg-brandColor"
-                      style={{
-                        width:
-                          skill.level === "Beginner"
-                            ? "50%"
-                            : skill.level === "Intermediate"
-                            ? "80%"
-                            : "100%",
-                      }}
-                    ></div>
-                  </div>
-                </Tooltip>
+                <Image
+                  src={skill.image}
+                  alt={skill.name}
+                  width={64}
+                  height={64}
+                  className="mb-2 h-full md:w-32"
+                />
+                <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
+                  {skill.name}
+                </span>
               </div>
             ))}
           </div>
@@ -264,33 +209,21 @@ const Skills = () => {
         <div className="md:block hidden"></div>
         {databases.map((skill, index) => (
           <div
-            className="w-full relative text-4xl p-[20px] md:m-[15px] flex flex-col justify-center items-center
-              sm:m-[6px] border border-brandColor rounded-lg my-2"
-              key={index}
+            className="flex flex-col items-center justify-center
+            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
+            p-6"
+            key={index}
           >
-            <Tooltip title={skill.name}>
-              <Image
-                src={skill.image}
-                alt={skill.name}
-                width={100}
-                height={100}
-              />
-            </Tooltip>
-            <Tooltip title={skill.level}>
-              <div className="absolute w-full bottom-0 left-0">
-                <div
-                  className="h-[8px] bg-brandColor"
-                  style={{
-                    width:
-                      skill.level === "Beginner"
-                        ? "50%"
-                        : skill.level === "Intermediate"
-                        ? "80%"
-                        : "100%",
-                  }}
-                ></div>
-              </div>
-            </Tooltip>
+            <Image
+              src={skill.image}
+              alt={skill.name}
+              width={64}
+              height={64}
+              className="mb-2 h-full md:w-32"
+            />
+            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
@@ -299,20 +232,23 @@ const Skills = () => {
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
         {tools.map((skill, index) => (
-            <div
-              className="w-full text-4xl min-h-[90%] p-[20px] md:m-[15px] flex flex-col justify-center items-center
-              sm:m-[6px] border border-brandColor rounded-lg my-2"
-              key={index}
-            >
-              <Tooltip title={skill.name}>
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={100}
-                  height={100}
-                />
-              </Tooltip>
-            </div>
+          <div
+            className="flex flex-col items-center justify-center
+            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
+            p-6"
+            key={index}
+          >
+            <Image
+              src={skill.image}
+              alt={skill.name}
+              width={64}
+              height={64}
+              className="mb-2 h-full md:w-32"
+            />
+            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
+              {skill.name}
+            </span>
+          </div>
         ))}
       </div>
     </div>

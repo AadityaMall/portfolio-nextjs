@@ -1,13 +1,10 @@
 "use client";
+
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronDown,
-  faGlobe,
-  faCodeBranch,
-} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe , faCodeBranch} from "@fortawesome/free-solid-svg-icons";
 
 type ProjectCardProps = {
   title: string;
@@ -37,95 +34,100 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="m-2">
-      <div className="bg-black text-white border-2 border-brandColor rounded-lg overflow-hidden">
-        <div className="p-4 pb-0">
-          <h4 className="font-bold text-3xl truncate">{title}</h4>
-          <h6 className="text-brandColor font-bold">{subtitle}</h6>
-        </div>
-        <div className="w-full aspect-video relative">
-          <Image
-            src={image}
-            alt="project pic"
-            layout="fill"
-            objectFit="contain"
-            loading="lazy"
-          />
-        </div>
-        <div className="p-4 pt-0">
+    <div className="flex flex-col md:flex-row bg-black/20 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-brandColor/40 transition-transform duration-300 mb-10 hover:-translate-y-1">
+<div className="md:w-2/5 w-full relative h-64 md:h-auto flex-shrink-0 rounded-l-2xl overflow-hidden">
+  <Image
+    src={image}
+    alt={title}
+    layout="fill"
+    objectFit="contain" // instead of cover
+    className="rounded-l-2xl bg-white/5 p-2"
+    priority
+  />
+  {/* Optional overlay */}
+  <div className="absolute inset-0 bg-black/20 rounded-l-2xl pointer-events-none"></div>
+</div>
+      {/* Right: Content */}
+      <div className="md:w-1/2 w-full p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="text-3xl font-bold text-brandColor">{title}</h3>
+          <h5 className="text-gray-300 font-semibold mb-4">{subtitle}</h5>
+
           <p
-            className="truncate"
+            className={`text-gray-200 text-sm leading-relaxed transition-all duration-300 ${
+              expanded ? "max-h-[1000px]" : "max-h-16 overflow-hidden"
+            }`}
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
-          <div className="flex space-x-2 mt-4">
-            {!hosted && githubOnlyProject.length > 0 ? (
-              githubOnlyProject.map((project, index) => (
-                <Link
-                  key={index}
-                  href={project.link}
-                  className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
-                >
-                  <FontAwesomeIcon icon={faCodeBranch} />
-                  <span className="ml-2">{project.title}</span>
-                </Link>
-              ))
-            ) : (
-              <></>
-            )}
-          </div>
-          {hosted && (
-            <div className="flex space-x-2 mt-4">
-              {previewLink && (
-                <Link
-                  href={previewLink}
-                  className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded w-fit"
-                >
-                  <FontAwesomeIcon icon={faGlobe} />
-                  <span className="ml-2">Live Preview</span>
-                </Link>
-              )}
-              <Link
-                href={githubLink ||""}
-                className="flex items-center no-underline font-bold bg-brandColor text-black px-4 py-2 rounded"
+
+          {bulletPoints && bulletPoints.length > 0 && (
+            <div className="mt-3">
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="text-brandColor font-semibold text-sm flex items-center gap-1"
               >
-                <FontAwesomeIcon icon={faCodeBranch} />
-                <span className="ml-2">Github</span>
-              </Link>
+                {expanded ? "Show Less" : "Read More"}
+              </button>
+
+              {expanded && (
+                <ul className="list-disc pl-5 mt-2 text-gray-200 space-y-1">
+                  {bulletPoints.map((point, idx) => (
+                    <li
+                      key={idx}
+                      dangerouslySetInnerHTML={{ __html: point }}
+                    ></li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
-        <div className="p-4 flex justify-between items-center">
-          <div className="flex gap-3 overflow-x-auto hide-scrollbar">
-            {iconChips.map((icon, index) => (
-              <Image
-                key={index}
-                src={icon}
-                alt="tech icon"
-                width={35}
-                height={35}
-              />
+
+        {/* Footer */}
+        <div className="mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+          <div className="flex gap-2 flex-wrap">
+            {iconChips.map((icon, idx) => (
+              <Image key={idx} src={icon} alt="tech icon" width={35} height={35} />
             ))}
           </div>
-          <button onClick={() => setExpanded(!expanded)} className="text-white">
-            <FontAwesomeIcon
-              icon={faChevronDown}
-              className={`transition-transform ${expanded ? "rotate-180" : ""}`}
-            />
-          </button>
-        </div>
-        {expanded && (
-          <div className="p-4 transition-all duration-300">
-            <p dangerouslySetInnerHTML={{ __html: description }}></p>
-            <ul className="list-disc pl-5 mt-2">
-              {bulletPoints?.map((point, index) => (
-                <li
-                  key={index}
-                  dangerouslySetInnerHTML={{ __html: point }}
-                ></li>
-              ))}
-            </ul>
+
+          <div className="flex gap-2 flex-wrap">
+            {!hosted && githubOnlyProject.length > 0
+              ? githubOnlyProject.map((proj, idx) => (
+                  <Link
+                    key={idx}
+                    href={proj.link}
+                    className="bg-brandColor px-4 py-2 rounded text-black font-semibold text-sm hover:bg-brandColor/80 transition-colors flex items-center gap-1"
+                  >
+                    <FontAwesomeIcon icon={faCodeBranch} />
+                    {proj.title}
+                  </Link>
+                ))
+              : (
+                  <>
+                    {previewLink && (
+                      <Link
+                        href={previewLink}
+                        className="bg-brandColor px-4 py-2 rounded text-black font-semibold text-sm hover:bg-brandColor/80 transition-colors flex items-center gap-1"
+                      >
+                        <FontAwesomeIcon icon={faGlobe} />
+                        Live Preview
+                      </Link>
+                    )}
+                    {githubLink && (
+                      <Link
+                        href={githubLink}
+                        className="bg-brandColor px-4 py-2 rounded text-black font-semibold text-sm hover:bg-brandColor/80 transition-colors flex items-center gap-1"
+                      >
+                        <FontAwesomeIcon icon={faCodeBranch} />
+                        Github
+                      </Link>
+                    )}
+                  </>
+                )
+            }
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

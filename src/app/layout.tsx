@@ -34,11 +34,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`bg-black text-white`}>
-        <ParticlesComponent />
+    <html lang="en" className="h-full">
+      <body className="relative h-full text-white overflow-x-hidden">
+        
+        {/* Static Gradient Background */}
+        <div className="fixed inset-0 -z-20 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        
+        {/* Particles above gradient */}
+        <div className="fixed inset-0 -z-10">
+          <ParticlesComponent />
+        </div>
+
+        {/* Foreground content */}
         <Navbar />
-        <div className="mt-5">{children}</div>
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>
