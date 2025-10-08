@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const positions = [
   {
-    image: "/images/iet.png",
+    image: "/images/IET.png",
     organization: "IET (Institution of Engineering and Technology) MPSTME",
     steps: [
       "Student Mentor A.Y 2025 - 2026",  
@@ -16,7 +16,7 @@ const positions = [
     currentStep: 0,
   },
   {
-    image: "/images/gdsc.png",
+    image: "/images/GDSC.png",
     organization: "Google Developers Student Club MPSTME",
     steps: ["Executive - Competitive Programming (Sep 2022 - Aug 2023)"],
     currentStep: 0,
