@@ -21,6 +21,7 @@ const WorkCard = ({
     location,
     points,
     skills,
+    link,
 }: {
     image: string;
     company: string;
@@ -29,6 +30,7 @@ const WorkCard = ({
     location: string;
     points: string[];
     skills: { label: string; icon?: string }[];
+    link?: string;
 }) => (
     <motion.div
         whileHover={{ scale: 1.02 }}
@@ -72,6 +74,13 @@ const WorkCard = ({
                 {points.map((point, i) => (
                     <li key={i}>{point}</li>
                 ))}
+                {link && (
+                    <li>
+                        <a href={link} className="text-brandColor">
+                            View Project
+                        </a>
+                    </li>
+                )}
             </ul>
 
             <div className="flex flex-wrap gap-2 pt-2">
@@ -95,8 +104,8 @@ const WorkExperience = () => {
                 "Designed and developed an Admin Panel and Ecommerce Marketplace using Next.js and Node.js.",
                 "Integrated Razorpay for secure payment processing with production-level checkout flow.",
                 "Implemented server-side rendering and SEO optimization for high performance.",
-                "Preview at https://aambaazaar.com/",
             ],
+            link: "https://aambaazaar.com/",
             skills: [
                 { label: "Next.js", icon: "/svgs/nextjs.svg" },
                 { label: "Node.js", icon: "/svgs/nodejs.svg" },
