@@ -15,7 +15,9 @@ const projectsData = [
     "/svgs/devcontainer.svg",
     "/svgs/python.svg",
     "/svgs/java.svg",
-    "/svgs/git.svg"
+    "/svgs/git.svg",
+    "/svgs/postgres.svg",
+    "/svgs/redis.svg"
   ],
   hosted: false,
   githubOnlyProject: [

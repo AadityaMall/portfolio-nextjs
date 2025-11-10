@@ -74,6 +74,10 @@ const Skills = () => {
       name: "Spring Boot",
       image: "/svgs/springboot.svg",
     },
+    {
+      name: "FastAPI",
+      image: "/svgs/fastapi.svg",
+    }
   ];
   const databases = [
     {
@@ -84,11 +88,35 @@ const Skills = () => {
       name: "MongoDB",
       image: "/svgs/mongo.svg",
     },
+    {
+      name: "PostgreSQL",
+      image: "/svgs/postgres.svg",
+    },
+    {
+      name:"Redis",
+      image:"/svgs/redis.svg",
+    }
   ];
   const tools = [
     {
       name: "Git",
       image: "/svgs/git.svg",
+    },
+        {
+      name: "Razorpay",
+      image: "/svgs/razorpay.svg",
+    },
+    {
+      name: "RabbitMQ",
+      image: "/svgs/rabbitmq.svg",
+    },
+    {
+      name: "Docker",
+      image: "/svgs/docker.svg"
+    },
+    {
+      name:"Devcontainer",
+      image:"/svgs/devcontainer.svg"
     },
     {
       name: "Postman",
@@ -105,18 +133,6 @@ const Skills = () => {
     {
       name: "Eclipse",
       image: "/svgs/eclipse.svg",
-    },
-    {
-      name: "Razorpay",
-      image: "/svgs/razorpay.svg",
-    },
-    {
-      name: "RabbitMQ",
-      image: "/svgs/rabbitmq.svg",
-    },
-    {
-      name: "Docker",
-      image: "/svgs/docker.svg"
     }
 
   ];
@@ -202,11 +218,10 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      <h3 className="text-white text-center my-4">
+      <h3 className="text-white text-center my-8">
         Known <strong className="text-brandColor">Databases</strong>
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-        <div className="md:block hidden"></div>
         {databases.map((skill, index) => (
           <div
             className="flex flex-col items-center justify-center
