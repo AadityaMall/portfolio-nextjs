@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCodeCompare, faEnvelope, faBars, faXmark,faFileLines, faDiagramProject, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCodeCompare, faEnvelope, faBars, faXmark,faFileLines, faDiagramProject, faCode, faAward } from "@fortawesome/free-solid-svg-icons";
 interface NavbarItem {
   name: string;
   link: string;
@@ -15,6 +15,7 @@ export default function NavbarDemo() {
   const navItems: NavbarItem[] = [
     { name: "Skills", link: "/#skills", icon: faCodeCompare },
     { name: "Experience", link: "/#experience", icon: faDiagramProject },
+    { name: "Recognition", link: "/#recognition", icon: faAward },
     { name: "Projects", link: "/#projects", icon: faCode },
     { name: "Contact", link: "/#contact", icon: faEnvelope },
     { name: "Resume", link: "/AadityaMallResume.pdf", icon: faFileLines },
