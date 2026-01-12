@@ -22,6 +22,7 @@ const WorkCard = ({
     points,
     skills,
     link,
+    imageClass,
 }: {
     image: string;
     company: string;
@@ -31,6 +32,7 @@ const WorkCard = ({
     points: string[];
     skills: { label: string; icon?: string }[];
     link?: string;
+    imageClass?: string;
 }) => (
     <motion.div
         whileHover={{ scale: 1.02 }}
@@ -44,7 +46,7 @@ const WorkCard = ({
 
         {/* Left: Company Logo */}
         <div className="flex justify-center items-center md:w-1/3">
-            <div className="bg-white/10 p-4 rounded-2xl">
+            <div className={`p-4 rounded-2xl ${imageClass}`}>
                 <Image
                     src={image}
                     alt={company}
@@ -95,8 +97,25 @@ const WorkCard = ({
 const WorkExperience = () => {
     const experiences = [
         {
+            image: "/images/protium.png",
+            company: "Protium Finance Limited",
+            role: "Data Science Intern",
+            imageClass: " bg-white p-2",
+            duration: "Jan 2026 – July 2026",
+            location: "On-site, Mumbai",
+            points: [
+                "Working in risk and analytics team to analyze the data and extract insights from the data.",
+                "Using Python and its libraries in data wrangling and analysis to extract insights from the data.",
+                "Credit Risk Analysis and Prediction using Machine Learning Algorithms.",
+            ],
+            skills: [
+                { label: "Python", icon: "/svgs/python.svg" },
+            ],
+        },
+        {
             image: "/images/aambaazaar.svg",
             company: "Aambaazaar",
+            imageClass: " bg-white p-2",
             role: "Freelance Full Stack Developer",
             duration: "April 2025 – June 2025",
             location: "Remote",
@@ -117,6 +136,7 @@ const WorkExperience = () => {
         {
             image: "/images/nobrokerage.png",
             company: "Nobrokerage.com",
+            imageClass: " bg-white p-2",
             role: "Full Stack Developer Intern",
             duration: "June 2024 – July 2024",
             location: "In Office, Mumbai",
@@ -137,6 +157,7 @@ const WorkExperience = () => {
         {
             image: "/images/rbl.png",
             company: "RBL Bank",
+            imageClass: " bg-white p-2",
             role: "Product Intern",
             duration: "June 2023 – July 2023",
             location: "In Office, Mumbai",

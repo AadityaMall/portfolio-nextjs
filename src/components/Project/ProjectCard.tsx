@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -39,9 +39,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   <Image
     src={image}
     alt={title}
-    layout="fill"
-    objectFit="contain" // instead of cover
-    className="rounded-l-2xl bg-white/5 p-2"
+    fill
+    style={{ objectFit: "contain" }}
+    className={`rounded-l-2xl`}
     priority
   />
   {/* Optional overlay */}
