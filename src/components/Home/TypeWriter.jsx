@@ -16,7 +16,7 @@ const TypeWriter = () => {
 
     <h1 className={`${dynaPuff.className} underline underline-offset-8 decoration-brandColor font-bold md:text-4xl text-2xl`}>
           <Typewriter
-            words={['Full Stack Developer','Aspiring SDE', 'Student', 'Freelancer']}
+            words={['Full Stack Developer','Aspiring SDE','Aspiring Data Scientist','Student', 'Freelancer']}
             loop={20}
             cursor
             cursorStyle='|'
