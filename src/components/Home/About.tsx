@@ -22,7 +22,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="flex items-center justify-center p-10">
             <Image
-              src="/images/AADITYA.JPG"
+              src="/images/Aaditya.JPG"
               alt="Aaditya Mall"
               width={200}
               height={300}
