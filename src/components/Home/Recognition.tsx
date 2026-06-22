@@ -1,400 +1,255 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BorderBeam } from "@/components/ui/border-beam";
 import Image from "next/image";
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
+/* ── Types ──────────────────────────────────────────────────────────── */
 interface Achievement {
-    title: string;
-    description: string;
-    year?: string;
-    organization?: string;
-    image?: string;
+  title: string;
+  description: string;
+  year?: string;
+  organization?: string;
+  image?: string;
 }
-
 interface Publication {
-    title: string;
-    description: string;
-    conference?: string;
-    year?: string;
-    status: "accepted" | "published" | "submitted";
-    image?: string;
+  title: string;
+  description: string;
+  conference?: string;
+  year?: string;
+  status: "accepted" | "published" | "submitted";
 }
-
 interface Certification {
-    name: string;
-    issuer: string;
-    year?: string;
-    credentialId?: string;
-    link?: string;
-    image: string;
+  name: string;
+  issuer: string;
+  year?: string;
+  credentialId?: string;
+  link?: string;
+  image: string;
 }
 
-const AchievementCard = ({ achievement }: { achievement: Achievement }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.02, y: -5 }}
-        className="relative group overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-md shadow-lg hover:shadow-brandColor/50 transition-all duration-300 p-6"
-    >
-        <BorderBeam borderWidth={2} />
-        <div className="flex flex-col md:flex-row gap-4 items-start">
-            {achievement.image && (
-                <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-xl overflow-hidden bg-white/10 p-2 group-hover:bg-white/20 transition-colors">
-                    <Image
-                        src={achievement.image}
-                        alt={achievement.title}
-                        fill
-                        className="object-contain rounded-lg"
-                    />
-                </div>
-            )}
-            <div className="flex-1">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                    <h4 className="text-xl font-bold text-white group-hover:text-brandColor transition-colors">
-                        {achievement.title}
-                    </h4>
-                    {achievement.year && (
-                        <span className="text-sm text-brandColor font-semibold bg-brandColor/10 px-3 py-1 rounded-full">
-                            {achievement.year}
-                        </span>
-                    )}
-                </div>
-                <p className="text-gray-300 leading-relaxed mb-2">{achievement.description}</p>
-                {achievement.organization && (
-                    <p className="text-sm text-brandColor font-medium flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-brandColor rounded-full"></span>
-                        {achievement.organization}
-                    </p>
-                )}
-            </div>
-        </div>
-    </motion.div>
+/* ── Achievement Card ───────────────────────────────────────────────── */
+const AchievementCard = ({ a }: { a: Achievement }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="glass-card group rounded-2xl p-6 flex gap-4 items-start hover:border-[rgba(0,245,255,0.2)] transition-all duration-500"
+  >
+    {a.image && (
+      <div className="shrink-0 size-14 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden p-2">
+        <Image src={a.image} alt={a.title} width={48} height={48} className="object-contain" />
+      </div>
+    )}
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <h4 className="font-bold text-white group-hover:text-[#00f5ff] transition-colors">{a.title}</h4>
+        {a.year && (
+          <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[rgba(0,245,255,0.08)] border border-[rgba(0,245,255,0.2)] text-[#00f5ff]">
+            {a.year}
+          </span>
+        )}
+      </div>
+      <p className="text-sm text-white/50 leading-relaxed">{a.description}</p>
+      {a.organization && (
+        <p className="text-xs font-medium text-[#00f5ff]/70 flex items-center gap-1.5">
+          <span className="size-1 rounded-full bg-[#00f5ff]" />
+          {a.organization}
+        </p>
+      )}
+    </div>
+  </motion.div>
 );
 
-const PublicationCard = ({ publication }: { publication: Publication }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.02, y: -5 }}
-        className="relative group overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/5 via-white/5 to-transparent backdrop-blur-xl shadow-lg hover:shadow-brandColor/40 transition-all duration-300 p-6"
-    >
-        <BorderBeam borderWidth={2} />
-        <div className="flex flex-col gap-4">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                <div className="space-y-1">
-                    <h4 className="text-xl font-semibold text-white group-hover:text-brandColor transition-colors line-clamp-2">
-                        {publication.title}
-                    </h4>
-                    {publication.conference && (
-                        <p className="text-sm text-brandColor/90 font-medium italic">
-                            {publication.conference}
-                        </p>
-                    )}
-                </div>
-                <div className="flex items-center gap-3 self-start md:self-auto">
-                    {publication.year && (
-                        <span className="text-sm text-gray-400">{publication.year}</span>
-                    )}
-                    <span
-                        className={`text-xs px-3 py-1 rounded-full font-semibold tracking-wide uppercase ${
-                            publication.status === "published"
-                                ? "bg-green-500/15 text-green-400 border border-green-500/40"
-                                : publication.status === "accepted"
-                                ? "bg-blue-500/15 text-blue-400 border border-blue-500/40"
-                                : "bg-yellow-500/15 text-yellow-400 border border-yellow-500/40"
-                        }`}
-                    >
-                        {publication.status.charAt(0).toUpperCase() + publication.status.slice(1)}
-                    </span>
-                </div>
-            </div>
-            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                {publication.description}
-            </p>
-        </div>
-    </motion.div>
-);
-
-const CertificationCard = ({
-    certification,
-}: {
-    certification: Certification;
-}) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.05, y: -5 }}
-        className="relative group h-full rounded-2xl border border-white/20 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-md shadow-lg hover:shadow-brandColor/50 transition-all duration-300 p-6 flex flex-col"
-    >
-        <BorderBeam borderWidth={2} />
-
-        {/* Certification Logo */}
-        <div className="relative w-full h-32 mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-white/10 to-white/5 p-4 group-hover:from-white/20 group-hover:to-white/10 transition-all duration-300 flex items-center justify-center border border-white/10">
-            <Image
-                src={certification.image}
-                alt={certification.name}
-                width={120}
-                height={120}
-                className="object-contain filter group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/infosys.webp";
-                }}
-            />
-        </div>
-
-        {/* Certification Details */}
-        <div className="flex-1 flex flex-col">
-            <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brandColor transition-colors line-clamp-2">
-                {certification.name}
-            </h4>
-            <p className="text-sm text-gray-400 mb-3">{certification.issuer}</p>
-
-            <div className="mt-auto space-y-2">
-                {certification.year && (
-                    <p className="text-xs text-gray-500">Issued: {certification.year}</p>
-                )}
-                {certification.credentialId && (
-                    <p className="text-xs text-gray-500 font-mono">
-                        ID: {certification.credentialId}
-                    </p>
-                )}
-                {certification.link && (
-                    <a
-                        href={certification.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-brandColor hover:text-brandColor/80 font-semibold transition-colors group/link"
-                    >
-                        <span>Verify Credential</span>
-                        <svg
-                            className="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
-                    </a>
-                )}
-            </div>
-        </div>
-    </motion.div>
-);
-
-const Recognition = () => {
-    // Modular data arrays - easily add/remove items
-    const achievements: Achievement[] = [
-        {
-            title: "Specialist Programmer Selection",
-            description:
-                "Selected as a Specialist Programmer through HackWithInfy, a competitive national selection program that recognizes exceptional coding talent and problem-solving abilities.",
-            year: "2025",
-            organization: "HackWithInfy",
-            image: "/images/infosys.webp",
-        },
-    ];
-
-    const publications: Publication[] = [
-        {
-            title: "Research Paper",
-            description:
-                "GreenMind: Adaptive Mental Health Assessment and Emotion-Aware Support System",
-            conference: "ICAIIE2026 (2nd International Conference On Academic And Industrial Innovations in Engineering)",
-            year: "[2026]",
-            status: "accepted",
-        },
-    ];
-
-    const certifications: Certification[] = [
-        {
-            name: "AWS Cloud Quest: Cloud Practitioner - Training Badge",
-            issuer: "Amazon Web Services",
-            year: "[2026]",
-            link: "https://www.credly.com/badges/dcb26bdd-fbd1-4a05-a518-cdc75a0ebe09",
-            image: "/images/cloud_practitioner.png",
-        },
-        {
-            name: "AWS Academy Graduate - Cloud Architecting - Training Badge",
-            issuer: "Amazon Web Services",
-            year: "[2026]",
-            link: "https://www.credly.com/badges/a580c798-67db-43f4-8970-a8eff1e97054/linked_in_profile",
-            image: "/images/cloud_architecting.png",
-        },
-        {
-            name: "Data Analysis and Visualization with Power BI",
-            issuer: "Microsoft",
-            year: "[2025]",
-            credentialId: "J1ZKOKPNUT2D",
-            link: "https://coursera.org/share/41249295fd2ec9da065a2d0c146d9ab0",
-            image: "/images/microsoft.jpeg",
-        },
-        {
-            name: "MongoDB and the Document Model",
-            issuer: "MongoDB",
-            year: "[2024]",
-            credentialId: "MDBplkd8afg37",
-            link: "https://learn.mongodb.com/c/PUP_s1jKRjyct9b3I1CmMA",
-            image: "/svgs/mongo.svg",
-        },
-        {
-            name: "Problem Solving (Basic)",
-            issuer: "HackerRank",
-            year: "[2022]",
-            credentialId: "56a7fd1a6755",
-            link: "https://www.hackerrank.com/certificates/56a7fd1a6755",
-            image: "/images/hackerrank.webp",
-        },
-        {
-            name: "Python(Basic)",
-            issuer: "HackerRank",
-            year: "[2022]",
-            credentialId: "56a7fd1a6755",
-            link: "https://www.hackerrank.com/certificates/56a7fd1a6755",
-            image: "/images/hackerrank.webp",
-        },
-        {
-            name: "Python 101 for Data Science",
-            issuer: "IBM",
-            year: "[2022]",
-            credentialId: "a24971e3c182443ea34ebc2c973a9c59",
-            link: "https://courses.cognitiveclass.ai/certificates/a24971e3c182443ea34ebc2c973a9c59",
-            image: "/images/ibm.webp",
-        },
-    ];
-
-    return (
-        <div className="min-h-screen w-full flex flex-col items-center justify-center px-6 md:px-16 py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-            {/* Background decorative elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-brandColor/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-brandColor/5 rounded-full blur-3xl"></div>
-            </div>
-
-            <div className="relative z-10 w-full max-w-7xl">
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-                        Recognition
-                    </h2>
-                    <div className="w-24 h-1 bg-brandColor mx-auto mb-4"></div>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Achievements, publications, and professional certifications that
-                        demonstrate my commitment to continuous learning and excellence.
-                    </p>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-12">
-                    <div className="w-full">
-                        {/* Achievements Section */}
-                        {achievements.length > 0 && (
-                            <motion.div
-                                className="w-full"
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                            >
-                                <h3 className="text-3xl font-bold text-brandColor mb-6 flex items-center gap-3">
-                                    <span className="w-1 h-8 bg-brandColor rounded-full"></span>
-                                    Achievements
-                                </h3>
-                                <div className="space-y-4">
-                                    {achievements.map((achievement, index) => (
-                                        <AchievementCard key={index} achievement={achievement} />
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
-                    </div>
-
-                    <div className="w-full">
-                        {/* Publications Section */}
-                        {publications.length > 0 && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                viewport={{ once: true }}
-                            >
-                                <h3 className="text-3xl font-bold text-brandColor mb-6 flex items-center gap-3">
-                                    <span className="w-1 h-8 bg-brandColor rounded-full"></span>
-                                    Publications
-                                </h3>
-                                <div className="space-y-4">
-                                    {publications.map((publication, index) => (
-                                        <PublicationCard key={index} publication={publication} />
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
-                    </div>
-                </div>
-
-                {/* Certifications Section with Carousel */}
-                {certifications.length > 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-3xl font-bold text-brandColor mb-6 flex items-center gap-3">
-                            <span className="w-1 h-8 bg-brandColor rounded-full"></span>
-                            Certifications
-                        </h3>
-                        <div className="relative px-8 md:px-16">
-                            <Carousel
-                                opts={{
-                                    align: "start",
-                                    loop: true,
-                                }}
-                                className="w-full"
-                            >
-                                <CarouselContent className="-ml-2 md:-ml-4">
-                                    {certifications.map((certification, index) => (
-                                        <CarouselItem
-                                            key={index}
-                                            className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
-                                        >
-                                            <CertificationCard certification={certification} />
-                                        </CarouselItem>
-                                    ))}
-                                </CarouselContent>
-                                <CarouselPrevious className="hidden md:flex -left-4 md:-left-12 border-2 border-brandColor/50 bg-black/60 backdrop-blur-sm text-brandColor hover:bg-brandColor hover:text-black hover:border-brandColor transition-all duration-300 shadow-lg shadow-brandColor/20" />
-                                <CarouselNext className="hidden md:flex -right-4 md:-right-12 border-2 border-brandColor/50 bg-black/60 backdrop-blur-sm text-brandColor hover:bg-brandColor hover:text-black hover:border-brandColor transition-all duration-300 shadow-lg shadow-brandColor/20" />
-                            </Carousel>
-                        </div>
-                    </motion.div>
-                )}
-            </div>
-        </div>
-    );
+/* ── Publication Card ───────────────────────────────────────────────── */
+const statusStyle: Record<Publication["status"], string> = {
+  published: "bg-green-500/10 text-green-400 border-green-500/30",
+  accepted:  "bg-blue-500/10 text-blue-400 border-blue-500/30",
+  submitted: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30",
 };
 
-export default Recognition;
+const PublicationCard = ({ p }: { p: Publication }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="glass-card group rounded-2xl p-6 flex flex-col gap-3 hover:border-[rgba(168,85,247,0.25)] transition-all duration-500"
+  >
+    <div className="flex items-start justify-between gap-3 flex-wrap">
+      <div className="flex flex-col gap-0.5">
+        <h4 className="font-bold text-white group-hover:text-[#a855f7] transition-colors leading-snug">{p.title}</h4>
+        {p.conference && <p className="text-xs text-[#a855f7]/70 italic">{p.conference}</p>}
+      </div>
+      <div className="flex items-center gap-2 shrink-0">
+        {p.year && <span className="text-xs text-white/30 font-mono">{p.year}</span>}
+        <span className={`text-xs px-2.5 py-0.5 rounded-full border font-semibold uppercase tracking-wide ${statusStyle[p.status]}`}>
+          {p.status}
+        </span>
+      </div>
+    </div>
+    <p className="text-sm text-white/50 leading-relaxed">{p.description}</p>
+  </motion.div>
+);
+
+/* ── Certification Card ─────────────────────────────────────────────── */
+const CertificationCard = ({ c }: { c: Certification }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+    className="glass-card group h-full rounded-2xl p-5 flex flex-col gap-4 hover:border-[rgba(0,245,255,0.2)] transition-all duration-500"
+  >
+    {/* Logo */}
+    <div className="h-24 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-3 overflow-hidden group-hover:bg-white/10 transition-colors">
+      <Image
+        src={c.image}
+        alt={c.name}
+        width={90}
+        height={90}
+        className="object-contain max-h-full group-hover:scale-105 transition-transform duration-300"
+        onError={(e) => { (e.target as HTMLImageElement).src = "/images/infosys.webp"; }}
+      />
+    </div>
+    {/* Details */}
+    <div className="flex flex-col gap-1 flex-1">
+      <h4 className="text-sm font-bold text-white leading-snug group-hover:text-[#00f5ff] transition-colors">{c.name}</h4>
+      <p className="text-xs text-white/40">{c.issuer}</p>
+      {c.year && <p className="text-xs text-white/25 font-mono">Issued {c.year}</p>}
+    </div>
+    {c.link && (
+      <a
+        href={c.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ cursor: "none" }}
+        className="flex items-center gap-1.5 text-xs text-[#00f5ff] font-semibold hover:gap-2.5 transition-all duration-300"
+      >
+        Verify credential
+        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    )}
+  </motion.div>
+);
+
+/* ── Recognition Section ────────────────────────────────────────────── */
+export default function Recognition() {
+  const achievements: Achievement[] = [
+    {
+      title: "Specialist Programmer Selection",
+      description: "Selected as a Specialist Programmer through HackWithInfy, recognising exceptional coding talent and problem-solving abilities.",
+      year: "2025",
+      organization: "HackWithInfy",
+      image: "/images/infosys.webp",
+    },
+  ];
+
+  const publications: Publication[] = [
+    {
+      title: "Research Paper",
+      description: "GreenMind: Adaptive Mental Health Assessment and Emotion-Aware Support System",
+      conference: "ICAIIE2026 — 2nd International Conference on Academic & Industrial Innovations in Engineering",
+      year: "2026",
+      status: "accepted",
+    },
+  ];
+
+  const certifications: Certification[] = [
+    { name: "AWS Cloud Quest: Cloud Practitioner", issuer: "Amazon Web Services", year: "2026", link: "https://www.credly.com/badges/dcb26bdd-fbd1-4a05-a518-cdc75a0ebe09", image: "/images/cloud_practitioner.png" },
+    { name: "AWS Academy Graduate – Cloud Architecting", issuer: "Amazon Web Services", year: "2026", link: "https://www.credly.com/badges/a580c798-67db-43f4-8970-a8eff1e97054/linked_in_profile", image: "/images/cloud_architecting.png" },
+    { name: "Data Analysis & Visualization with Power BI", issuer: "Microsoft", year: "2025", credentialId: "J1ZKOKPNUT2D", link: "https://coursera.org/share/41249295fd2ec9da065a2d0c146d9ab0", image: "/images/microsoft.jpeg" },
+    { name: "MongoDB and the Document Model", issuer: "MongoDB", year: "2024", credentialId: "MDBplkd8afg37", link: "https://learn.mongodb.com/c/PUP_s1jKRjyct9b3I1CmMA", image: "/svgs/mongo.svg" },
+    { name: "Problem Solving (Basic)", issuer: "HackerRank", year: "2022", credentialId: "56a7fd1a6755", link: "https://www.hackerrank.com/certificates/56a7fd1a6755", image: "/images/hackerrank.webp" },
+    { name: "Python (Basic)", issuer: "HackerRank", year: "2022", link: "https://www.hackerrank.com/certificates/56a7fd1a6755", image: "/images/hackerrank.webp" },
+    { name: "Python 101 for Data Science", issuer: "IBM", year: "2022", credentialId: "a24971e3c182443ea34ebc2c973a9c59", link: "https://courses.cognitiveclass.ai/certificates/a24971e3c182443ea34ebc2c973a9c59", image: "/images/ibm.webp" },
+  ];
+
+  return (
+    <section
+      id="recognition"
+      className="relative py-24 px-6 md:px-10 overflow-hidden"
+    >
+      {/* Section number */}
+      <span className="section-number absolute top-10 left-6 md:left-16 select-none pointer-events-none">
+        04
+      </span>
+
+      {/* Subtle glow */}
+      <div aria-hidden="true" className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, rgba(168,85,247,0.05) 0%, transparent 70%)", filter: "blur(60px)" }} />
+
+      <div className="max-w-7xl w-full mx-auto flex flex-col gap-12">
+
+        {/* Header */}
+        <div className="flex flex-col gap-4 reveal">
+          <div className="flex items-center gap-3">
+            <span className="glow-dot" style={{ background: "#a855f7", boxShadow: "0 0 8px #a855f7" }} />
+            <span className="font-mono text-xs text-[#a855f7] tracking-widest uppercase">Recognition</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+            Awards &{" "}
+            <span className="gradient-text">Credentials</span>
+          </h2>
+          <p className="text-white/40 max-w-lg">
+            Achievements, publications, and certifications that reflect continuous learning and real-world impact.
+          </p>
+        </div>
+
+        {/* Achievements + Publications */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal delay-200">
+          <div className="flex flex-col gap-4">
+            <h3 className="font-semibold text-white/60 flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-[#00f5ff]" />
+              Achievements
+            </h3>
+            {achievements.map((a, i) => <AchievementCard key={i} a={a} />)}
+          </div>
+          <div className="flex flex-col gap-4">
+            <h3 className="font-semibold text-white/60 flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-[#a855f7]" />
+              Publications
+            </h3>
+            {publications.map((p, i) => <PublicationCard key={i} p={p} />)}
+          </div>
+        </div>
+
+        {/* Certifications carousel */}
+        <div className="flex flex-col gap-6 reveal delay-300">
+          <h3 className="font-semibold text-white/60 flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-[#00f5ff]" />
+            Certifications
+          </h3>
+          <div className="relative px-6 md:px-14">
+            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+              <CarouselContent className="-ml-3 md:-ml-4">
+                {certifications.map((c, i) => (
+                  <CarouselItem key={i} className="pl-3 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                    <CertificationCard c={c} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious
+                style={{ cursor: "none" }}
+                className="hidden md:flex -left-5 md:-left-10 border border-white/15 bg-[rgba(2,2,6,0.8)] text-white hover:bg-[rgba(0,245,255,0.1)] hover:border-[rgba(0,245,255,0.4)] hover:text-[#00f5ff] transition-all"
+              />
+              <CarouselNext
+                style={{ cursor: "none" }}
+                className="hidden md:flex -right-5 md:-right-10 border border-white/15 bg-[rgba(2,2,6,0.8)] text-white hover:bg-[rgba(0,245,255,0.1)] hover:border-[rgba(0,245,255,0.4)] hover:text-[#00f5ff] transition-all"
+              />
+            </Carousel>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,273 +1,199 @@
+"use client";
+
 import Image from "next/image";
-const Skills = () => {
-  const codeSkills = [
-    {
-      name: "C++",
-      image: "/svgs/cpp.svg",
-    },
-    {
-      name: "CSS",
-      image: "/svgs/css.svg",
-    },
-    {
-      name: "HTML",
-      image: "/svgs/html.svg",
-    },
-    {
-      name: "JavaScript",
-      image: "/svgs/javascript.svg",
-    },
-    {
-      name: "PHP",
-      image: "/svgs/php.svg",
+import { Code2, BrainCircuit, Cloud } from "lucide-react";
+import SectionReveal from "@/components/Layout/SectionReveal";
 
-    },
-    {
-      name: "Python",
-      image: "/svgs/python.svg",
-    },
-    {
-      name: "Java",
-      image: "/svgs/java.svg",
-    },
-    {
-      name: "TypeScript",
-      image: "/svgs/typescript.svg",
-    },
-  ];
-  const frontendFrameworks = [
-    {
-      name: "React",
-      image: "/svgs/react.svg",
-    },
-    {
-      name: "Next.js",
-      image: "/svgs/nextjs.svg",
-    },
-    {
-      name: "Tailwind CSS",
-      image: "/svgs/tailwindcss.svg",
-    },
-    {
-      name: "Bootstrap",
-      image: "/svgs/bootstrap.svg",
-    },
-    {
-      name: "Codeigniter",
-      image: "/svgs/codeigniter.svg",
-    },
-  ];
-  const backendFrameworks = [
-    {
-      name: "Node.js",
-      image: "/svgs/nodejs.svg",
-    },
-    {
-      name: "Express",
-      image: "/svgs/express.svg",
-    },
-    {
-      name: "Fastify",
-      image: "/svgs/fastify.svg",
-    },
-    {
-      name: "Spring Boot",
-      image: "/svgs/springboot.svg",
-    },
-    {
-      name: "FastAPI",
-      image: "/svgs/fastapi.svg",
-    }
-  ];
-  const databases = [
-    {
-      name: "MySQL",
-      image: "/svgs/mysql.svg",
-    },
-    {
-      name: "MongoDB",
-      image: "/svgs/mongo.svg",
-    },
-    {
-      name: "PostgreSQL",
-      image: "/svgs/postgres.svg",
-    },
-    {
-      name:"Redis",
-      image:"/svgs/redis.svg",
-    }
-  ];
-  const tools = [
-    {
-      name: "Git",
-      image: "/svgs/git.svg",
-    },
-        {
-      name: "Razorpay",
-      image: "/svgs/razorpay.svg",
-    },
-    {
-      name: "RabbitMQ",
-      image: "/svgs/rabbitmq.svg",
-    },
-    {
-      name: "Docker",
-      image: "/svgs/docker.svg"
-    },
-    {
-      name:"Devcontainer",
-      image:"/svgs/devcontainer.svg"
-    },
-    {
-      name: "Postman",
-      image: "/svgs/postman.svg",
-    },
-    {
-      name: "VS Code",
-      image: "/svgs/vscode.svg",
-    },
-    {
-      name: "Intellij IDEA",
-      image: "/svgs/intellij.svg",
-    },
-    {
-      name: "Eclipse",
-      image: "/svgs/eclipse.svg",
-    }
+interface Skill {
+  name: string;
+  icon?: string; // path to /svgs/
+}
 
-  ];
+interface SkillBucket {
+  lucideIcon: React.ReactNode;
+  title: string;
+  description: string;
+  skills: Skill[];
+}
+
+const buckets: SkillBucket[] = [
+  {
+    lucideIcon: <Code2 size={20} strokeWidth={2} />,
+    title: "Development",
+    description: "Languages, frameworks, and backend systems for building full-stack applications end-to-end.",
+    skills: [
+      { name: "TypeScript",  icon: "/svgs/typescript.svg"  },
+      { name: "JavaScript",  icon: "/svgs/javascript.svg"  },
+      { name: "Java",        icon: "/svgs/java.svg"        },
+      { name: "Python",      icon: "/svgs/python.svg"      },
+      { name: "C++",         icon: "/svgs/cpp.svg"         },
+      { name: "Next.js",     icon: "/svgs/nextjs.svg"      },
+      { name: "React",       icon: "/svgs/react.svg"       },
+      { name: "Spring Boot", icon: "/svgs/springboot.svg"  },
+      { name: "Node.js",     icon: "/svgs/nodejs.svg"      },
+      { name: "Express",     icon: "/svgs/express.svg"     },
+      { name: "FastAPI",     icon: "/svgs/fastapi.svg"     },
+      { name: "PostgreSQL",  icon: "/svgs/postgres.svg"    },
+      { name: "MongoDB",     icon: "/svgs/mongo.svg"       },
+      { name: "MySQL",       icon: "/svgs/mysql.svg"       },
+      { name: "Redis",       icon: "/svgs/redis.svg"       },
+      { name: "RabbitMQ",    icon: "/svgs/rabbitmq.svg"    },
+      { name: "Tailwind CSS",icon: "/svgs/tailwindcss.svg" },
+    ],
+  },
+  {
+    lucideIcon: <BrainCircuit size={20} strokeWidth={2} />,
+    title: "AI & Data",
+    description: "Machine learning tooling, data pipelines, and LLM integration for intelligent systems.",
+    skills: [
+      { name: "Python",        icon: "/svgs/python.svg"   },
+      { name: "FastAPI",       icon: "/svgs/fastapi.svg"  },
+      { name: "Pandas"                                     },
+      { name: "NumPy"                                      },
+      { name: "Scikit-learn"                               },
+      // { name: "BERT / ModernBERT"                          },
+      // { name: "Mistral-7B"                                 },
+      // { name: "Llama 3.1"                                  },
+      { name: "RAG Pipelines"                              },
+      // { name: "LangChain"                                  },
+      { name: "Credit Risk ML"                             },
+      { name: "IRT / CAT"                                  },
+      { name: "Power BI"                                   },
+    ],
+  },
+  {
+    lucideIcon: <Cloud size={20} strokeWidth={2} />,
+    title: "Cloud & DevOps",
+    description: "Infrastructure, containerization, CI/CD, and cloud platforms for production deployments.",
+    skills: [
+      { name: "Docker",        icon: "/svgs/docker.svg"       },
+      { name: "Dev Containers",icon: "/svgs/devcontainer.svg" },
+      { name: "Git",           icon: "/svgs/git.svg"          },
+      { name: "Postman",       icon: "/svgs/postman.svg"      },
+      { name: "GitHub Actions"                                 },
+      { name: "AWS EC2 / S3"                                   },
+      { name: "AWS Architecting"                               },
+      { name: "Firebase"                                       },
+      { name: "Vercel"                                         },
+      { name: "Linux"                                          },
+      { name: "Nginx"                                          },
+      { name: "Microservices"                                  },
+    ],
+  },
+];
+
+/* ── Skill chip with optional SVG icon ───────────────────────────── */
+function SkillChip({ skill }: { skill: Skill }) {
   return (
-    <div className="m-3 mb-0 flex flex-col justify-center items-center">
-      <h1 className="text-white text-center my-4">
-        My <strong className="text-brandColor">Skillset</strong>
-      </h1>
-      <h3 className="text-white text-center my-4">
-        Programming <strong className="text-brandColor">Languages</strong>
-      </h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-        {codeSkills.map((skill, index) => (
-          <div
-            className="flex flex-col items-center justify-center
-            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
-            p-6"
-            key={index}
-          >
-            <Image
-              src={skill.image}
-              alt={skill.name}
-              width={64}
-              height={64}
-              className="mb-2 h-full md:w-32"
-            />
-            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
-              {skill.name}
-            </span>
-          </div>
-        ))}
-      </div>
-      <h3 className="mt-10 text-white text-center my-4">
-        Frameworks <strong className="text-brandColor">and Libraries</strong>
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-        <div>
-          <h3 className="text-center my-4">Frontend Frameworks</h3>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
-            {frontendFrameworks.map((skill, index) => (
-              <div
-                className="flex flex-col items-center justify-center
-            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
-            p-6"
-                key={index}
-              >
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={64}
-                  height={64}
-                  className="mb-2 h-full md:w-32"
-                />
-                <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3 className="text-center my-4">Backend Frameworks</h3>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full">
-            {backendFrameworks.map((skill, index) => (
-              <div
-                className="flex flex-col items-center justify-center
-            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
-            p-6"
-                key={index}
-              >
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={64}
-                  height={64}
-                  className="mb-2 h-full md:w-32"
-                />
-                <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <h3 className="text-white text-center my-8">
-        Known <strong className="text-brandColor">Databases</strong>
-      </h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-        {databases.map((skill, index) => (
-          <div
-            className="flex flex-col items-center justify-center
-            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
-            p-6"
-            key={index}
-          >
-            <Image
-              src={skill.image}
-              alt={skill.name}
-              width={64}
-              height={64}
-              className="mb-2 h-full md:w-32"
-            />
-            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
-              {skill.name}
-            </span>
-          </div>
-        ))}
-      </div>
-      <h3 className="text-white text-center my-8">
-        Platforms <strong className="text-brandColor">and Tools</strong>
-      </h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-        {tools.map((skill, index) => (
-          <div
-            className="flex flex-col items-center justify-center
-            border border-brandColor rounded-xl shadow-lg hover:scale-105 transition-transform duration-200
-            p-6"
-            key={index}
-          >
-            <Image
-              src={skill.image}
-              alt={skill.name}
-              width={64}
-              height={64}
-              className="mb-2 h-full md:w-32"
-            />
-            <span className="text-brandColor text-xs font-semibold mt-2 tracking-wide">
-              {skill.name}
-            </span>
-          </div>
-        ))}
-      </div>
+    <div
+      className="flex items-center gap-2 px-3 py-2 rounded-xl border transition-all duration-200 group"
+      style={{
+        background: "color-mix(in oklch, var(--color-primary) 5%, transparent)",
+        borderColor: "color-mix(in oklch, var(--color-primary) 18%, var(--color-border))",
+      }}
+    >
+      {skill.icon && (
+        <Image
+          src={skill.icon}
+          alt={skill.name}
+          width={18}
+          height={18}
+          className="object-contain shrink-0"
+          style={{ filter: "saturate(1.1) brightness(0.95)" }}
+        />
+      )}
+      <span
+        className="text-sm font-medium leading-none"
+        style={{ color: "var(--color-text)" }}
+      >
+        {skill.name}
+      </span>
     </div>
   );
-};
+}
 
-export default Skills;
+export default function Skills() {
+  return (
+    <section id="skills" className="relative py-24 px-5 md:px-8">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <SectionReveal>
+          <span className="section-label mb-4 block">Skills</span>
+        </SectionReveal>
+        <SectionReveal delay={100}>
+          <h2
+            className="text-3xl md:text-5xl font-bold tracking-tight mb-3"
+            style={{ color: "var(--color-text)" }}
+          >
+            What I work with
+          </h2>
+        </SectionReveal>
+        <SectionReveal delay={150}>
+          <p
+            className="text-base md:text-lg mb-14 max-w-xl"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            Three technology domains — each battle-tested on real projects, not tutorials.
+          </p>
+        </SectionReveal>
+
+        {/* Buckets */}
+        <div className="flex flex-col gap-6">
+          {buckets.map((bucket, i) => (
+            <SectionReveal key={bucket.title} delay={200 + i * 100}>
+              <div className="surface-card p-6 md:p-8">
+                {/* Bucket header */}
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className="flex items-center justify-center w-9 h-9 rounded-xl shrink-0"
+                    style={{
+                      background: "color-mix(in oklch, var(--color-primary) 12%, transparent)",
+                      color: "var(--color-primary)",
+                    }}
+                  >
+                    {bucket.lucideIcon}
+                  </div>
+                  <div>
+                    <h3
+                      className="text-base font-bold"
+                      style={{ color: "var(--color-text)" }}
+                    >
+                      {bucket.title}
+                    </h3>
+                    <p
+                      className="text-xs mt-0.5 hidden sm:block"
+                      style={{ color: "var(--color-text-muted)" }}
+                    >
+                      {bucket.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Description on mobile */}
+                <p
+                  className="text-xs mb-4 sm:hidden"
+                  style={{ color: "var(--color-text-muted)" }}
+                >
+                  {bucket.description}
+                </p>
+
+                {/* Divider */}
+                <div
+                  className="h-px mb-5"
+                  style={{ background: "var(--color-border)" }}
+                />
+
+                {/* Skill chips */}
+                <div className="flex flex-wrap gap-2">
+                  {bucket.skills.map(skill => (
+                    <SkillChip key={skill.name} skill={skill} />
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
