@@ -5,7 +5,7 @@ import SectionReveal from "@/components/Layout/SectionReveal";
 const stats = [
   { value: "3.77", label: "CGPA", unit: "/4" },
   { value: "3+", label: "Years building", unit: "" },
-  { value: "3", label: "Clients delivered for", unit: "" },
+  { value: "4", label: "Clients delivered for", unit: "" },
 ];
 
 export default function About() {
@@ -50,15 +50,16 @@ export default function About() {
               >
                 I&apos;m a Computer Engineering (AI) student at NMIMS University who builds real,
                 production-grade systems — not academic exercises. My stack spans Spring Boot
-                microservices, Next.js, Node.js, and data science tooling.
+                microservices, Next.js, Node.js, FastAPI, and data science tooling.
               </p>
               <p
                 className="text-base md:text-lg leading-relaxed max-w-2xl mb-10"
                 style={{ color: "var(--color-text-muted)" }}
               >
-                I&apos;ve delivered freelance web applications for three clients, interned in data
-                science working on credit risk ML, and built complex systems involving AI, RAG,
-                and psychometric assessment. I care about code that ships and systems that scale.
+                I&apos;ve delivered freelance web applications for three clients, built and maintained
+                a FastAPI microservice powering a Business Rule Engine at Protium, and engineered
+                complex systems involving AI, RAG, and psychometric assessment. I care about code
+                that ships and systems that scale.
               </p>
             </SectionReveal>
 

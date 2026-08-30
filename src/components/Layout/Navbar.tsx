@@ -157,7 +157,7 @@ export default function Navbar() {
       */}
       <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav
-          className="pointer-events-auto w-full max-w-4xl flex items-center justify-between gap-3 px-4 py-2.5 transition-all duration-500"
+          className="pointer-events-auto w-full max-w-5xl flex items-center justify-between gap-4 px-6 py-3 transition-all duration-500"
           style={{
             background: scrolled
               ? "color-mix(in oklch, var(--color-background) 72%, transparent)"
@@ -174,7 +174,7 @@ export default function Navbar() {
           {/* Name */}
           <a
             href="#"
-            className="text-sm font-bold tracking-tight shrink-0 transition-colors duration-200 px-1"
+            className="text-base font-bold tracking-tight shrink-0 transition-colors duration-200 px-1"
             style={{ color: "var(--color-text)" }}
             onMouseEnter={e => (e.currentTarget.style.color = "var(--color-primary)")}
             onMouseLeave={e => (e.currentTarget.style.color = "var(--color-text)")}
@@ -183,14 +183,14 @@ export default function Navbar() {
           </a>
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
+          <ul className="hidden lg:flex items-center gap-1 flex-1 justify-center">
             {navItems.map(item => {
               const isActive = activeSection === item.href.replace("#", "");
               return (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="relative px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-200"
+                    className="relative px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200"
                     style={{
                       color: isActive ? "var(--color-primary)" : "var(--color-text-muted)",
                       background: isActive
@@ -218,7 +218,7 @@ export default function Navbar() {
           </ul>
 
           {/* Right controls */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <ThemeToggle />
 
             {/* Resume link */}
@@ -226,7 +226,7 @@ export default function Navbar() {
               href="/AadityaMallResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border"
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border"
               style={{
                 borderColor: "var(--color-border)",
                 color: "var(--color-text-muted)",
@@ -242,14 +242,14 @@ export default function Navbar() {
                 (e.currentTarget as HTMLElement).style.background = "transparent";
               }}
             >
-              <FileText size={12} strokeWidth={2} />
+              <FileText size={14} strokeWidth={2} />
               Resume
             </a>
 
             {/* Hire CTA */}
             <a
               href="mailto:aadityarmall@gmail.com"
-              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold text-white transition-all duration-200"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white transition-all duration-200"
               style={{ background: "var(--color-primary)" }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.background = "var(--color-primary-light)";
@@ -260,7 +260,7 @@ export default function Navbar() {
                 (e.currentTarget as HTMLElement).style.transform = "";
               }}
             >
-              <Briefcase size={12} strokeWidth={2.5} />
+              <Briefcase size={13} strokeWidth={2.5} />
               Hire
             </a>
 
@@ -268,10 +268,10 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200"
+              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-full transition-colors duration-200"
               style={{ color: "var(--color-text-muted)" }}
             >
-              <Menu size={18} />
+              <Menu size={20} />
             </button>
           </div>
         </nav>

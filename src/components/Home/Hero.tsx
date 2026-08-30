@@ -82,8 +82,8 @@ export default function Hero() {
           className="hero-animate hero-animate-4 text-base md:text-lg max-w-xl leading-relaxed"
           style={{ color: "var(--color-text-muted)" }}
         >
-          I build production-grade web applications — from microservices backends
-          to pixel-perfect frontends. Three clients delivered. Real systems, not side projects.
+          I build production-grade systems — from FastAPI microservices and backend APIs
+          to pixel-perfect frontends. Four clients delivered. Real engineering, not side projects.
         </p>
 
         {/* CTAs */}

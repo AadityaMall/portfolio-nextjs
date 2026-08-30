@@ -173,7 +173,7 @@ src/
 - **Current badge** (pulsing teal dot + "Current" text) appears on active roles.
 - Type badge (Internship / Full-time / Freelance) styled as a ghost pill.
 - Duration shows "Present" for ongoing roles, not an end date.
-- Data: Protium (`isCurrent: true`), Nobrokerage, RBL Bank. Extendable — add full-time later by appending to the `experiences` array.
+- Data: Protium (`isCurrent: true`, Full-time), Nobrokerage, RBL Bank. Extendable — add more roles by appending to the `experiences` array.
 
 ### Projects
 - **4 projects only:** GreenMind, Aviation Ticketing System, SoleStore, CertiMail.

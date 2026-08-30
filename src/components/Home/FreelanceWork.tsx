@@ -33,11 +33,20 @@ const freelanceProjects: FreelanceProject[] = [
 
   },
   {
+    name: "Rotaract Club of Thane North End",
+    description:
+      "Full-featured community club website with dynamic content management, team directory, project showcase, and gallery — all driven by Firestore.",
+    stack: ["Next.js", "Tailwind CSS"],
+    liveUrl: "https://rctne.vercel.app",
+    year: "2026",
+
+  },
+  {
     name: "PECaS - Precision Electromagnetic Certification and Solution Pvt. Ltd.",
     description:
       "Complete Portfolio Website with full control CMS Panel",
     stack: ["Next.js", "Firebase", "Firestore", "Tailwind CSS"],
-    liveUrl: "https://pecas-frontend-website.vercel.app/",
+    liveUrl: "https://pecaslab.com",
     year: "2024",
 
   },
@@ -74,14 +83,6 @@ function FreelanceCard({
               </span>
             </a>
           )}
-
-          {/* Year badge */}
-          <span
-            className="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full text-white"
-            style={{ background: "var(--color-primary)" }}
-          >
-            {project.year}
-          </span>
 
 
         {/* Content */}
@@ -162,7 +163,7 @@ export default function FreelanceWork() {
           </p>
         </SectionReveal>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           {freelanceProjects.map((project, i) => (
             <FreelanceCard key={project.name} project={project} index={i} />
           ))}
