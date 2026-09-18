@@ -1,30 +1,13 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://aadityamall.tech',
+      url: siteConfig.url,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: 'https://aadityamall.tech/project',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://aadityamall.tech/experience',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: 'https://aadityamall.tech/cv',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
+  ];
 }

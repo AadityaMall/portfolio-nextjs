@@ -8,7 +8,7 @@ const TypeWriter = () => {
 
   return (
 
-    <h1 className={`font-bold md:text-3xl text-2xl`}>
+    <p className={`font-bold md:text-3xl text-2xl`}>
           <Typewriter
             words={['Software Engineer','Full Stack Developer','Data Scientist','Backend Engineer','Freelancer']}
             loop={20}
@@ -18,7 +18,7 @@ const TypeWriter = () => {
             deleteSpeed={50}
             delaySpeed={1000}
           />
-      </h1>
+      </p>
   );
 };
 

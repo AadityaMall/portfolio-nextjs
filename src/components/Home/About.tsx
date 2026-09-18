@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import SectionReveal from "@/components/Layout/SectionReveal";
+import { siteConfig } from "@/lib/site";
 
 const stats = [
   { value: "3.77", label: "CGPA", unit: "/4" },
@@ -22,8 +23,8 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="flex items-center justify-center p-10">
             <Image
-              src="/images/Aaditya.JPG"
-              alt="Aaditya Mall"
+              src={siteConfig.profileImage}
+              alt="Aaditya Mall — Software Engineer and Data Scientist"
               width={200}
               height={300}
               className="relative rounded-2xl object-cover transform group-hover:scale-105 transition-transform duration-700"

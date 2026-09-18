@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
 import { ThemeProvider } from "@/components/Layout/ThemeProvider";
+import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,30 +14,62 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aadityamall.tech"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Aaditya Mall — Full Stack Developer",
-    template: "%s | Aaditya Mall",
+    default: siteConfig.titleDefault,
+    template: siteConfig.titleTemplate,
   },
-  description:
-    "Full-stack developer & CS/AI student building production-grade web applications. Spring Boot, Next.js, microservices. Available for freelance web development.",
-  keywords:
-    "Aaditya Mall, full stack developer, Next.js, Spring Boot, microservices, MERN stack, freelance developer, portfolio",
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.author, url: siteConfig.url }],
+  creator: siteConfig.author,
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  verification: {
+    google: siteConfig.googleSiteVerification,
+  },
   openGraph: {
-    title: "Aaditya Mall — Full Stack Developer",
-    description:
-      "Full-stack developer building production-grade web applications with Spring Boot, Next.js and microservices architecture.",
-    images: ["/images/Aaditya.JPG"],
-    url: "https://aadityamall.tech",
+    title: siteConfig.titleDefault,
+    description: siteConfig.description,
+    images: [siteConfig.profileImage],
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aaditya Mall — Full Stack Developer",
-    description:
-      "Full-stack developer building production-grade web applications.",
-    images: ["/images/Aaditya.JPG"],
-    creator: "@AadityaMall",
+    title: siteConfig.titleDefault,
+    description: siteConfig.description,
+    images: [siteConfig.profileImage],
+    creator: siteConfig.social.twitter,
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  image: `${siteConfig.url}${siteConfig.profileImage}`,
+  jobTitle: siteConfig.jobTitles,
+  email: `mailto:${siteConfig.email}`,
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: siteConfig.alumniOf,
+  },
+  sameAs: [siteConfig.social.linkedin, siteConfig.social.github],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  author: {
+    "@type": "Person",
+    name: siteConfig.name,
   },
 };
 
@@ -45,6 +78,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       <body className="relative overflow-x-hidden">
         <ThemeProvider
           attribute="class"
